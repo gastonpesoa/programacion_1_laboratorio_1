@@ -7,7 +7,7 @@ int main()
     int resultado;
 
     printf("Ingrese un nuemero: ");
-    scanf("%d",i);
+    scanf("%d",&i);
     resultado = (i * (i + 1))/2;
     printf("El resultado es: %d", resultado);
 
