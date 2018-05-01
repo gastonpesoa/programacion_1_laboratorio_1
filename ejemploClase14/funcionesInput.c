@@ -8,11 +8,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
+#include "types.h"
+#include "adminFunctions.h"
+#include "funcionesMenus.h"
+#include "controllerFunctions.h"
+#include "bookFunctions.h"
+#include "authorsFunctions.h"
+#include "booksAuthorsFunctions.h"
 #include "funcionesInput.h"
-#include "library.h"
+
 
 /**
  * \brief Solicita un n˙mero al usuario y devuelve el resultado
@@ -54,7 +61,7 @@ char getChar(char mensaje[])
 {
     char auxiliar;
     printf("%s",mensaje);
-    fflush(stdin);
+    cleanStdin();
     scanf("%c",&auxiliar);
     return auxiliar;
 }
@@ -253,8 +260,10 @@ int getStringNumerosFlotantes(char mensaje[],char input[])
 /**
  * \brief Solicita un numero entero al usuario y lo valida
  * \param requestMessage Es el mensaje a ser mostrado para solicitar el dato
- * \param requestMessage Es el mensaje a ser mostrado en caso de error
- * \return El n˙mero ingresado por el usuario
+ * \param errorMessage Es el mensaje a ser mostrado en caso de error
+ * \param lowLimit Es el limite inferior aceptado
+ * \param lowLimit Es el limite superior aceptado
+ * \return El numero ingresado por el usuario
  *
  */
 int getValidInt(char requestMessage[],char errorMessage[], int lowLimit, int hiLimit)
@@ -277,10 +286,7 @@ int getValidInt(char requestMessage[],char errorMessage[], int lowLimit, int hiL
             
         }
         return auxInt;
-        
     }
-    
-    
 }
 
 /**
@@ -289,7 +295,7 @@ int getValidInt(char requestMessage[],char errorMessage[], int lowLimit, int hiL
  * \param requestMessage Es el mensaje a ser mostrado en caso de error
  * \param lowLimit Es el limite inferior aceptado
  * \param lowLimit Es el limite superior aceptado
- * \return 0 si consiguio el Numero -1 si no
+ * \return El numero ingresado por el usuario
  *
  */
 int getValidFloat(char requestMessage[],char errorMessage[],float lowLimit, float hiLimit)
@@ -321,11 +327,13 @@ int getValidFloat(char requestMessage[],char errorMessage[],float lowLimit, floa
  */
 void cleanStdin(void)
 {
+    //setbuf(stdin,NULL);
     int c;
     do {
         c = getchar();
     } while (c != '\n' && c != EOF);
 }
+
 
 /**
  * \brief Solicita un string
@@ -345,7 +353,7 @@ void getValidString(char requestMessage[],char errorMessage[], char input[])
             printf ("%s\n",errorMessage);
             continue;
         }
-        cleanStdin();
+        //cleanStdin();
         break;
     }
     
