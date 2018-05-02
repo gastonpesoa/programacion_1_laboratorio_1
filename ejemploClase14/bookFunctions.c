@@ -163,7 +163,7 @@ void showBookArray(book bookArray[],int arrayLenght)
     {
         if(bookArray[i].status != 0)
         {
-            printf("\n| %6d  | %-40s | %5d | %5d |",bookArray[i].code,bookArray[i].title,bookArray[i].authorId,bookArray[i].stock);
+            printf("\n| %6d  | %-40s | %5d | %5d |", bookArray[i].code, bookArray[i].title, bookArray[i].authorId, bookArray[i].stock);
         }
     }
     

@@ -46,7 +46,7 @@ void setAuthorStatus(author authorArray[],int arrayLenght,int value)
  * \return Si no hay ocurrencia (-1) y si la hay la posicion de la misma (i)
  *
  */
-int findAuthorById(author authorArray[],int arrayLenght,int authorIdAux)
+int findAuthorById(author authorArray[], int arrayLenght, int authorIdAux)
 {
     int i;
     for(i=0;i < arrayLenght; i++)

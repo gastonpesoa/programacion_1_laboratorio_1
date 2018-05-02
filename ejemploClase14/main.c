@@ -38,10 +38,10 @@ int main(void) {
     //Menu de opciones
     int option = 0;
     
-    while (option != 4) {
+    while (option != 5) {
         
         printf("\n-------------- MENU PRINCIPAL --------------");
-        option = optionMenu("\n1 - ABM LIBROS \n2 - ABM AUTORES \n3 - LISTAR LIBROS\n4 - SALIR\n\n\n", "\nSe debe elegir una opcion del 1 al 4", 1, 4);
+        option = optionMenu("\n1 - ABM LIBROS \n2 - ABM AUTORES \n3 - LISTAR LIBROS\n4 - INFORMES\n5 - SALIR\n\n\n", "\nSe debe elegir una opcion del 1 al 5", 1, 5);
         
         switch (option){
                 
@@ -58,6 +58,12 @@ int main(void) {
                 showBookAuthorArray(bookArray, BOOKS_MAX_QTY, authorArray, AUTHORS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
+                
+            case 4:
+                showLibrosMayorMenorStock(bookArray, BOOKS_MAX_QTY);
+                getChar("\n\nENTER (para continuar)");
+                break;
+                
         }//switch (option)
     }//while (option != 4)
     

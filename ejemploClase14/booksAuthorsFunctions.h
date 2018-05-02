@@ -13,8 +13,7 @@
 
 
 
-
-
-void showBookAuthorArray(book bookArray[],int arrayLenght,author authorArray[],int authorArrayLenght);
+void showBookAuthorArray(book bookArray[],int bookArrayLenght,author authorArray[],int authorArrayLenght);
+void showLibrosMayorMenorStock(book bookArray[],int bookArrayLenght);
 
 #endif /* defined(__ejemploClase14__library__) */
