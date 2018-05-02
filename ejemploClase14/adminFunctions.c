@@ -36,25 +36,25 @@ void adminBooks(book bookArray[]){
         switch (option){
                 
             case 1: // Alta de libro
-                controller_altaBook(bookArray, MAX_QTY);
+                controller_altaBook(bookArray, BOOKS_MAX_QTY);
                 break;
                 
             case 2: // Baja de libro
-                controller_bajaBook(bookArray, MAX_QTY);
+                controller_bajaBook(bookArray, BOOKS_MAX_QTY);
                 break;
                 
             case 3: // Modificacion de libro
-                controller_modificarBook(bookArray, MAX_QTY);
+                controller_modificarBook(bookArray, BOOKS_MAX_QTY);
                 break;
                 
             case 4: //Listar libros
                 clearScreen();
-                showBookArray(bookArray, MAX_QTY);
+                showBookArray(bookArray, BOOKS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
                 
             case 5: // Ordenar lista de libros
-                orderBookArrayByTitle(bookArray, MAX_QTY);
+                orderBookArrayByTitle(bookArray, BOOKS_MAX_QTY);
                 getChar("\n\nOrdenados. ENTER (para continuar)");
                 break;
         }//switch (option)
@@ -77,16 +77,16 @@ void adminAuthors(author authorArray[]){
         switch(option){
                 
             case 1:// Alta de autor
-                controller_altaAuthor(authorArray, MAX_QTY);
+                controller_altaAuthor(authorArray, AUTHORS_MAX_QTY);
                 break;
                 
             case 2://Baja de autor
-                controller_bajaAuthor(authorArray, MAX_QTY);
+                controller_bajaAuthor(authorArray, AUTHORS_MAX_QTY);
                 break;
                 
             case 3:// Listar
                 clearScreen();
-                showAuthorArray(authorArray, MAX_QTY);
+                showAuthorArray(authorArray, AUTHORS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
         }

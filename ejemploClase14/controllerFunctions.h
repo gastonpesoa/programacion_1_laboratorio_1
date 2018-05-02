@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 
+void controller_test(book bookArray[], int arrayBookLenght, author authorArray[], int arrayAuthorLenght);
 void controller_altaBook(book bookArray[], int arrayLenght);
 void controller_bajaBook(book bookArray[], int arrayLenght);
 void controller_modificarBook(book bookArray[], int arrayLenght);

@@ -9,6 +9,9 @@
 #ifndef ejemploClase14_types_h
 #define ejemploClase14_types_h
 
+#define BOOKS_MAX_QTY 200
+#define AUTHORS_MAX_QTY 200
+
 typedef struct{
     char title[51];
     int code;

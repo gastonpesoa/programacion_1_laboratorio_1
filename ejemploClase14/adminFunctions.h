@@ -12,8 +12,6 @@
 #include <stdio.h>
 #include "types.h"
 
-#define MAX_QTY 200
-
 void adminBooks(book bookArray[]);
 void adminAuthors(author authorArray[]);
 

@@ -22,27 +22,18 @@
 
 
 
-
 int main(void) {
     
     //array de libros
-    book bookArray[MAX_QTY];
-    setBookStatus(bookArray, MAX_QTY, 0);
+    book bookArray[BOOKS_MAX_QTY];
+    setBookStatus(bookArray, BOOKS_MAX_QTY, 0);
     
     //array de autores
-    author authorArray[MAX_QTY];
-    setAuthorStatus(authorArray, MAX_QTY, 0);
+    author authorArray[AUTHORS_MAX_QTY];
+    setAuthorStatus(authorArray, AUTHORS_MAX_QTY, 0);
     
-    // Alta de datos para testing
-    setBook(bookArray,1,1,"What you need before you can learn C",1,777);
-    setBook(bookArray,2,2,"Using a Compiler",2,33);
-    setBook(bookArray,3,3,"A Taste of C",3,98);
-    setBook(bookArray,4,4,"Why Learn C",1,876);
-    
-    setAuthor(authorArray,1,1,"Brian","Kernighan");
-    setAuthor(authorArray,2,2,"Dennis","Ritchie");
-    setAuthor(authorArray,3,3,"Linus","Torvalds");
-    setAuthor(authorArray,4,4,"Richard","Stallman");
+    //HardCode con datos para test
+    controller_test(bookArray, BOOKS_MAX_QTY, authorArray, AUTHORS_MAX_QTY);
     
     //Menu de opciones
     int option = 0;
@@ -64,7 +55,7 @@ int main(void) {
                 
             case 3: // LISTAR
                 clearScreen();
-                showBookAuthorArray(bookArray, MAX_QTY, authorArray, MAX_QTY);
+                showBookAuthorArray(bookArray, BOOKS_MAX_QTY, authorArray, AUTHORS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
         }//switch (option)

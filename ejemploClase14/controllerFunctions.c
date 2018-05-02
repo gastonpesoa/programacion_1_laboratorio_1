@@ -21,6 +21,24 @@
 #include "funcionesInput.h"
 
 
+/** \brief Carga datos de prueba tanto en el array de libros como en el de autores
+ * \param void
+ * \return void
+ */
+void controller_test(book bookArray[], int arrayBookLenght, author authorArray[], int arrayAuthorLenght){
+    
+    // Alta de datos para testing
+    setBook(bookArray,1,1,"What you need before you can learn C",1,777);
+    setBook(bookArray,2,2,"Using a Compiler",2,33);
+    setBook(bookArray,3,3,"A Taste of C",3,98);
+    setBook(bookArray,4,4,"Why Learn C",1,876);
+    
+    setAuthor(authorArray,1,1,"Brian","Kernighan");
+    setAuthor(authorArray,2,2,"Dennis","Ritchie");
+    setAuthor(authorArray,3,3,"Linus","Torvalds");
+    setAuthor(authorArray,4,4,"Richard","Stallman");
+};
+
 /** \brief Pide al usuario los datos de un nuevo libro y luego lo agrega al array
  * \param book bookArray el array de libros donde se alamcenara el nuevo libro
  * \param length int Longitud del array
@@ -38,7 +56,7 @@ void controller_altaBook(book bookArray[], int arrayLenght){
 
     printf("\nALTA DE LIBRO\n\n");
     
-    freePlaceIndex = findBookEmptyPlace(bookArray, MAX_QTY);
+    freePlaceIndex = findBookEmptyPlace(bookArray, BOOKS_MAX_QTY);
     
     if (freePlaceIndex == -1) {
         
@@ -49,7 +67,7 @@ void controller_altaBook(book bookArray[], int arrayLenght){
         
         codeAux = getValidInt("Ingrese el codigo del libro: ", "El codigo del libro debe ser numerico\n", 1, 15000);
         
-        if (findBookByCode(bookArray, MAX_QTY, codeAux) != -1) {
+        if (findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux) != -1) {
             printf("\n\nEL CODIGO YA EXISTE!!!\n");
             getChar("\n\nENTER (para continuar)");
         }
@@ -83,7 +101,7 @@ void controller_bajaBook(book bookArray[], int arrayLenght){
     printf("\nBAJA DE LIBRO\n\n");
     
     codeAux = getValidInt("Ingrese el codigo del libro a dar de baja: ", "El codigo del libro debe ser numerico\n", 1, 15000);
-    foundIndex = findBookByCode(bookArray, MAX_QTY, codeAux);
+    foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
     
     if (foundIndex == -1) {
         
@@ -130,7 +148,7 @@ void controller_modificarBook(book bookArray[], int arrayLenght){
     printf("\nMODIFICACION DE LIBRO\n\n");
     
     codeAux = getValidInt("Ingrese el codigo del libro a modificar: ", "El codigo del libro debe ser numerico\n", 1, 15000);
-    foundIndex = findBookByCode(bookArray, MAX_QTY, codeAux);
+    foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
     
     if (foundIndex == -1) {
         
@@ -191,14 +209,14 @@ void controller_altaAuthor(author authorArray[], int arrayLenght){
     
     int freePlaceIndex;
     
-    freePlaceIndex = findAuthorEmptyPlace(authorArray, MAX_QTY);
+    freePlaceIndex = findAuthorEmptyPlace(authorArray, AUTHORS_MAX_QTY);
     if (freePlaceIndex == -1) {
         printf("\n\nNO QUEDAN LUGARES LIBRES!!!\n");
         getChar("\n\nENTER (para continuar)");
     }
     else {
         authorIdAux = getValidInt("Ingrese el codigo del autor: ","El codigo del autor debe ser numerico\n", 1, 500);
-        if (findAuthorById(authorArray, MAX_QTY, authorIdAux) != -1) {
+        if (findAuthorById(authorArray, AUTHORS_MAX_QTY, authorIdAux) != -1) {
             printf("\n\nEL CODIGO YA EXISTE!!!\n");
             getChar("\n\nENTER (para continuar)");
         }
@@ -228,7 +246,7 @@ void controller_bajaAuthor(author authorArray[], int arrayLenght){
     char confirmar = 'n';
     
     authorIdAux = getValidInt("Ingrese el codigo del autor: ","El codigo del autor debe ser numerico\n", 1, 500);
-    foundIndex = findAuthorById(authorArray, MAX_QTY, authorIdAux);
+    foundIndex = findAuthorById(authorArray, AUTHORS_MAX_QTY, authorIdAux);
     
     if (foundIndex == -1) {
         
