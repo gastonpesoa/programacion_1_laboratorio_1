@@ -72,12 +72,12 @@ int findAuthorById(author authorArray[], int arrayLenght, int authorIdAux)
  */
 void setAuthor(author authorArray[],int freePlaceIndex, int authorIdAux,char nameAux[],char lastNameAux[])
 {
-    
+
     authorArray[freePlaceIndex].authorId = authorIdAux;
     strcpy(authorArray[freePlaceIndex].name,nameAux);
     strcpy(authorArray[freePlaceIndex].lastName,lastNameAux);
     authorArray[freePlaceIndex].status = 1;
-    
+
 }
 
 
@@ -118,7 +118,7 @@ void showAuthorArray(author authorArray[],int arrayLenght)
             printf("\n| %6d  | %-15s  | %-15s",authorArray[i].authorId,authorArray[i].name,authorArray[i].lastName);
         }
     }
-    
+
 }
 
 /**
@@ -127,6 +127,6 @@ void showAuthorArray(author authorArray[],int arrayLenght)
  * \return -
  */
 void showAuthor(author author){
-    printf("\n| CODIGO  |      NOMBRE      |    APELLIDO     ");
+
     printf("\n| %6d  | %-15s  | %-15s",author.authorId,author.name,author.lastName);
 }

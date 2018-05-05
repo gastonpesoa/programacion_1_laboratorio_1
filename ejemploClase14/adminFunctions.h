@@ -13,6 +13,6 @@
 #include "types.h"
 
 void adminBooks(book bookArray[]);
-void adminAuthors(author authorArray[]);
+void adminAuthors(author authorArray[], book bookArray[]);
 
 #endif /* defined(__ejemploClase14__adminFunctions__) */

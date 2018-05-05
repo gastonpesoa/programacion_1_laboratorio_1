@@ -26,13 +26,13 @@
  * \return void
  */
 void controller_test(book bookArray[], int arrayBookLenght, author authorArray[], int arrayAuthorLenght){
-    
+
     // Alta de datos para testing
     setBook(bookArray,1,1,"What you need before you can learn C",1,777);
     setBook(bookArray,2,2,"Using a Compiler",2,33);
     setBook(bookArray,3,3,"A Taste of C",3,98);
     setBook(bookArray,4,4,"Why Learn C",1,876);
-    
+
     setAuthor(authorArray,1,1,"Brian","Kernighan");
     setAuthor(authorArray,2,2,"Dennis","Ritchie");
     setAuthor(authorArray,3,3,"Linus","Torvalds");
@@ -46,41 +46,41 @@ void controller_test(book bookArray[], int arrayBookLenght, author authorArray[]
  *
  */
 void controller_altaBook(book bookArray[], int arrayLenght){
-    
+
     char titleAux[51];
     int authorIdAux;
     int codeAux;
     int stockAux;
-    
+
     int freePlaceIndex;
 
     printf("\nALTA DE LIBRO\n\n");
-    
+
     freePlaceIndex = findBookEmptyPlace(bookArray, BOOKS_MAX_QTY);
-    
+
     if (freePlaceIndex == -1) {
-        
+
         printf("\n\nNO QUEDAN LUGARES LIBRES!!!\n");
         getChar("\n\nENTER (para continuar)");
     }
     else{
-        
+
         codeAux = getValidInt("Ingrese el codigo del libro: ", "El codigo del libro debe ser numerico\n", 1, 15000);
-        
+
         if (findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux) != -1) {
             printf("\n\nEL CODIGO YA EXISTE!!!\n");
             getChar("\n\nENTER (para continuar)");
         }
         else{
-            
+
             authorIdAux = getValidInt("Ingrese el ID del autor del libro: ", "El ID del autor debe ser numerico\n", 1, 500);
             stockAux = getValidInt("Ingrese la cantidad de libros: ", "La cantidad debe ser numerica\n", 1, 10000);
             getValidString("Ingrese el titulo: ", "El titulo debe estar compuesto solo por letras\n", titleAux);
-            
+
             setBook(bookArray, freePlaceIndex, codeAux, titleAux, authorIdAux, stockAux);
             printf("\nALTA REALIZADA CON EXITO!\n");
             getChar("\n\nENTER (para continuar)");
-            
+
         }
     }
 }
@@ -92,36 +92,36 @@ void controller_altaBook(book bookArray[], int arrayLenght){
  *
  */
 void controller_bajaBook(book bookArray[], int arrayLenght){
-    
+
     int codeAux;
-    
+
     int foundIndex;
     char confirmar = 'n';
-    
+
     printf("\nBAJA DE LIBRO\n\n");
-    
+
     codeAux = getValidInt("Ingrese el codigo del libro a dar de baja: ", "El codigo del libro debe ser numerico\n", 1, 15000);
     foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
-    
+
     if (foundIndex == -1) {
-        
+
         printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
         getChar("\n\nENTER (para continuar)");
     }
     else {
-        
+        printf("\n|  CODIGO   |                    TITULO                | AUTOR | STOCK |");
         showBook(bookArray[foundIndex]);
-        
+
         confirmar = confirm("\n\nSe esta por eliminar el libro seleccionado, confirma la baja? [s|n]: ");
-        
+
         if (confirmar == 's') {
-            
+
             bookArray[foundIndex].status = 0;
             printf("\nSE HA DADO DE BAJA AL LIBRO\n\n");
             getChar("\n\nENTER (para continuar)");
         }
         else {
-            
+
             printf("\nNO SE HA REALIZADO LA BAJA DEL LIBRO\n\n");
             getChar("\n\nENTER (para continuar)");
         }
@@ -135,60 +135,60 @@ void controller_bajaBook(book bookArray[], int arrayLenght){
  *
  */
 void controller_modificarBook(book bookArray[], int arrayLenght){
-    
+
     char titleAux[51];
     int authorIdAux;
     int codeAux;
     int stockAux;
-    
+
     int foundIndex;
     int option;
     char confirmar = 'n';
-    
+
     printf("\nMODIFICACION DE LIBRO\n\n");
-    
+
     codeAux = getValidInt("Ingrese el codigo del libro a modificar: ", "El codigo del libro debe ser numerico\n", 1, 15000);
     foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
-    
+
     if (foundIndex == -1) {
-        
+
         printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
         getChar("\n\nENTER (para continuar)");
     }
     else{
-        
+        printf("\n|  CODIGO   |                    TITULO                | AUTOR | STOCK |");
         showBook(bookArray[foundIndex]);
-        
+
         authorIdAux = bookArray[foundIndex].authorId;
         stockAux = bookArray[foundIndex].stock;
         strcpy(titleAux, bookArray[foundIndex].title);
-        
+
         option = optionMenu("\n\n1 - MODIFICAR ID DEL AUTOR \n2 - MODIFICAR CANTIDAD DE LIBROS \n3 - MODIFICAR TITULO\n4 - REGRESAR\n\n\n", "\nSe debe elegir una opcion del 1 al 4", 1, 4);
-        
+
         switch (option){
-            
+
             case 1:// Modificacion de ID de autor
                 authorIdAux = getValidInt("Ingrese el ID del autor del libro: ", "El ID del autor debe ser numerico\n", 1, 500);
                 break;
-                
+
             case 2:// Modificacion de stock
                 stockAux = getValidInt("Ingrese la cantidad de libros: ", "La cantidad debe ser numerica\n", 1, 10000);
                 break;
-                
+
             case 3:// Modificacion del titulo
                 getValidString("Ingrese el titulo: ", "El titulo debe estar compuesto solo por letras\n", titleAux);
                 break;
         }
-        
+
         confirmar = confirm("\n\nSe esta por modificar el libro seleccionado, confirma la modificacion? [s|n]: ");
         if (confirmar == 's') {
-            
+
             setBook(bookArray, foundIndex, codeAux, titleAux, authorIdAux, stockAux);
             printf("\nSE HAN MODIFICADO LOS DATOS DEL LIBRO\n\n");
             getChar("\n\nENTER (para continuar)");
         }
         else {
-            
+
             printf("\nNO SE HA REALIZADO LA MODIFICACION DEL LIBRO\n\n");
             getChar("\n\nENTER (para continuar)");
         }
@@ -202,13 +202,13 @@ void controller_modificarBook(book bookArray[], int arrayLenght){
  *
  */
 void controller_altaAuthor(author authorArray[], int arrayLenght){
-    
+
     char nameAux[51];
     char lastNameAux[51];
     int authorIdAux;
-    
+
     int freePlaceIndex;
-    
+
     freePlaceIndex = findAuthorEmptyPlace(authorArray, AUTHORS_MAX_QTY);
     if (freePlaceIndex == -1) {
         printf("\n\nNO QUEDAN LUGARES LIBRES!!!\n");
@@ -223,7 +223,7 @@ void controller_altaAuthor(author authorArray[], int arrayLenght){
         else {
             getValidString("Ingrese el nombre del autor: ","El nombre debe estar compuesto solo por letras\n", nameAux);
             getValidString("Ingrese el apellido del autor: ","El nombre debe estar compuesto solo por letras\n", lastNameAux);
-            
+
             setAuthor(authorArray, freePlaceIndex, authorIdAux, nameAux, lastNameAux);
             printf("\nALTA REALIZADA CON EXITO!\n");
             getChar("\n\nENTER (para continuar)");
@@ -239,33 +239,33 @@ void controller_altaAuthor(author authorArray[], int arrayLenght){
  *
  */
 void controller_bajaAuthor(author authorArray[], int arrayLenght){
-    
+
     int authorIdAux;
-    
+
     int foundIndex;
     char confirmar = 'n';
-    
-    authorIdAux = getValidInt("Ingrese el codigo del autor: ","El codigo del autor debe ser numerico\n", 1, 500);
+
+    authorIdAux = getValidInt("Ingrese el codigo del autor: ","El codigo del autor debe ser numerico\n", 1, AUTHORS_MAX_QTY);
     foundIndex = findAuthorById(authorArray, AUTHORS_MAX_QTY, authorIdAux);
-    
+
     if (foundIndex == -1) {
-        
+
         printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
         getChar("\n\nENTER (para continuar)");
     }
     else {
-        
+        printf("\n| CODIGO  |      NOMBRE      |    APELLIDO     ");
         showAuthor(authorArray[foundIndex]);
-        
+
         confirmar = confirm("\n\nSe esta por eliminar el autor seleccionado, confirma la baja? [s|n]: ");
         if (confirmar == 's') {
-            
+
             authorArray[foundIndex].status = 0;
             printf("\nSE HA DADO DE BAJA AL AUTOR\n\n");
             getChar("\n\nENTER (para continuar)");
         }
         else {
-            
+
             printf("\nNO SE HA REALIZADO LA BAJA DEL AUTOR\n\n");
             getChar("\n\nENTER (para continuar)");
         }
@@ -278,17 +278,17 @@ void controller_bajaAuthor(author authorArray[], int arrayLenght){
  *
  */
 char confirm(char confirmMensaje[]){
-    
+
     char confirmar = 'n';
-    
+
     do {
-        
+
         printf("%s", confirmMensaje);
         cleanStdin();
         scanf("%c", &confirmar);
         confirmar = tolower(confirmar);
-        
+
     } while (confirmar != 's' && confirmar != 'n');
-    
+
     return confirmar;
 }

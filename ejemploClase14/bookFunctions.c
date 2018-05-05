@@ -96,7 +96,7 @@ void orderBookArrayByTitle(book bookArray[],int arrayLenght)
 {
     book bookAux;
     int i,j;
-    
+
     for(i=0; i < arrayLenght - 1; i++)
     {
         if(bookArray[i].status == 0)
@@ -141,7 +141,7 @@ void orderBookArrayByTitle(book bookArray[],int arrayLenght)
  */
 void setBook(book bookArray[],int freePlaceIndex, int codeAux,char titleAux[], int authorIdAux,int stockAux)
 {
-    
+
     bookArray[freePlaceIndex].authorId = authorIdAux;
     strcpy(bookArray[freePlaceIndex].title,titleAux);
     bookArray[freePlaceIndex].stock = stockAux;
@@ -166,7 +166,7 @@ void showBookArray(book bookArray[],int arrayLenght)
             printf("\n| %6d  | %-40s | %5d | %5d |", bookArray[i].code, bookArray[i].title, bookArray[i].authorId, bookArray[i].stock);
         }
     }
-    
+
 }
 
 /**
@@ -175,6 +175,6 @@ void showBookArray(book bookArray[],int arrayLenght)
  * \return -
  */
 void showBook(book book){
-    printf("\n|  CODIGO   |                    TITULO                | AUTOR | STOCK |");
+
     printf("\n|  %6d   | %-40s | %5d | % 5d |", book.code, book.title, book.authorId, book.stock);
 }

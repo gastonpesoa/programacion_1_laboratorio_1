@@ -36,7 +36,7 @@ void showBookAuthorArray(book bookArray[],int bookArrayLenght,author authorArray
     int i;
     char auxAuthor[51];
     int authorIdAux;
-    
+
     printf("\n| CODIGO  |                    TITULO            |     AUTOR       | STOCK |");
     for(i=0;i < bookArrayLenght; i++)
     {
@@ -54,7 +54,7 @@ void showBookAuthorArray(book bookArray[],int bookArrayLenght,author authorArray
             printf("\n| %6d  | %-36s | %15s | %5d |",bookArray[i].code,bookArray[i].title,auxAuthor,bookArray[i].stock);
         }
     }
-    
+
 }
 
 
@@ -67,17 +67,17 @@ void showBookAuthorArray(book bookArray[],int bookArrayLenght,author authorArray
  *
  */
 void showLibrosMayorMenorStock(book bookArray[],int bookArrayLenght){
-    
+
     int i, min = 0, max = 0, flag = 0;
     int codeMaxStock = 0, codeMinStock = 0;
     int foundIndexMin, foundIndexMax;
-    
+
     for (i = 0; i < bookArrayLenght; i++) {
-        
+
         if (bookArray[i].status != 0) {
-            
+
             if (flag == 0) {
-                
+
                 min = bookArray[i].stock;
                 max = bookArray[i].stock;
                 codeMaxStock = bookArray[i].code;
@@ -85,27 +85,61 @@ void showLibrosMayorMenorStock(book bookArray[],int bookArrayLenght){
                 flag = 1;
             }
             else {
-                
+
                 if (bookArray[i].stock > max) {
-                    
+
                     max = bookArray[i].stock;
                     codeMaxStock = bookArray[i].code;
                 }
                 if (bookArray[i].stock < min) {
-                    
+
                     min = bookArray[i].stock;
                     codeMinStock = bookArray[i].code;
                 }
             }//if (flag == 0)
         }//if (bookArray[i].status != 0)
     }//for (i = 0; i < bookArrayLenght; i++)
-        
+
     foundIndexMax = findBookByCode(bookArray, BOOKS_MAX_QTY, codeMaxStock);
     foundIndexMin = findBookByCode(bookArray, BOOKS_MAX_QTY, codeMinStock);
-    
+
+    clearScreen();
     printf("\n**************** LIBRO CON MAS STOCK ******************\n");
+    printf("\n|  CODIGO   |                    TITULO                | AUTOR | STOCK |");
     showBook(bookArray[foundIndexMax]);
     printf("\n\n**************** LIBRO CON MENOS STOCK ******************\n");
+    printf("\n|  CODIGO   |                    TITULO                | AUTOR | STOCK |");
     showBook(bookArray[foundIndexMin]);
-    
+
 }//void showLibroConMayorStock(book bookArray[],int bookArrayLenght)
+
+
+/** \brief Informa los autores con mas libros registrados
+ * \param book bookArray El array de libros
+ * \param bookArrayLenght Longitud del array
+ * \param author authorArray El array de autores
+ * \param authorArrayLenght Longitud del array
+ * \return -
+ *
+ */
+void showAuthorBooks(book bookArray[], int bookArrayLenght, author authorArray[], int authorArrayLenght){
+
+    int i, authorIdAux, foundIndex;
+
+    authorIdAux = getValidInt("Ingrese el codigo del autor: ","El codigo del autor debe ser numerico\n", 1, AUTHORS_MAX_QTY);
+    foundIndex = findAuthorById(authorArray, AUTHORS_MAX_QTY, authorIdAux);
+
+    if(foundIndex == -1){
+        printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
+        getChar("\n\nENTER (para continuar)");
+    }
+    else{
+        showAuthor(authorArray[foundIndex]);
+        for(i = 0; i < BOOKS_MAX_QTY; i++){
+
+            if(bookArray[i].status == 1 && authorIdAux == bookArray[i].authorId){
+                showBook(bookArray[i]);
+            }
+        }
+    }
+}//void showAuthorBooks(book bookArray[],int bookArrayLenght, author authorArray[], int authorArrayLenght)

@@ -23,52 +23,52 @@
 
 
 int main(void) {
-    
+
     //array de libros
     book bookArray[BOOKS_MAX_QTY];
     setBookStatus(bookArray, BOOKS_MAX_QTY, 0);
-    
+
     //array de autores
     author authorArray[AUTHORS_MAX_QTY];
     setAuthorStatus(authorArray, AUTHORS_MAX_QTY, 0);
-    
+
     //HardCode con datos para test
     controller_test(bookArray, BOOKS_MAX_QTY, authorArray, AUTHORS_MAX_QTY);
-    
+
     //Menu de opciones
     int option = 0;
-    
+
     while (option != 5) {
-        
+        clearScreen();
         printf("\n-------------- MENU PRINCIPAL --------------");
         option = optionMenu("\n1 - ABM LIBROS \n2 - ABM AUTORES \n3 - LISTAR LIBROS\n4 - INFORMES\n5 - SALIR\n\n\n", "\nSe debe elegir una opcion del 1 al 5", 1, 5);
-        
+
         switch (option){
-                
+
             case 1: // ABM LIBROS
                 adminBooks(bookArray);
                 break;
-                
+
             case 2: // ABM AUTORES
-                adminAuthors(authorArray);
+                adminAuthors(authorArray, bookArray);
                 break;
-                
+
             case 3: // LISTAR
                 clearScreen();
                 showBookAuthorArray(bookArray, BOOKS_MAX_QTY, authorArray, AUTHORS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
-                
+
             case 4:
                 showLibrosMayorMenorStock(bookArray, BOOKS_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
-                
+
         }//switch (option)
     }//while (option != 4)
-    
+
     return 0;
-}//int main(void) 
+}//int main(void)
 
 
 
