@@ -13,5 +13,8 @@
 
 void controller_test(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
 void controller_altaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
+void controller_bajaProduct(product productArray[], int arrayLenght, user userArray[], int arrayUserLenght);
+
+char confirm(char confirmMensaje[]);
 
 #endif /* defined(__practicaModeloParcial_1__controllerFunctions__) */

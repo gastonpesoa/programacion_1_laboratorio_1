@@ -155,38 +155,73 @@ void controller_bajaProduct(product productArray[], int arrayLenght, user userAr
                 getChar("\n\nENTER (para continuar)");
             }
         }
-        
     }//if (findUserById(userArray, USERS_MAX_QTY, userIdAux) == -1)
-    
-    codeAux = getValidInt("Ingrese el codigo del libro a dar de baja: ", "El codigo del libro debe ser numerico\n", 1, 15000);
-    foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
-    
-    
 }
 
-/** \brief Pide al usuario el codigo del libro a ser modificado, despliega un menu de opciones de los campos disponibles y luego de confirmar los modifica
+/** \brief Pide al usuario el ID del producto a ser modificado, despliega un menu de opciones de los campos disponibles y luego de confirmar los modifica
  * \param book bookArray el array de libros donde se buscara el libro a ser modificado
  * \param length int Longitud del array
  * \return -
  *
  */
-void controller_modificarBook(book bookArray[], int arrayLenght){
+void controller_modificarUser(product productArray[], int arrayLenght, user userArray[], int arrayUserLenght){
     
-    char titleAux[51];
-    int authorIdAux;
-    int codeAux;
+    int productIdAux;
+    int userIdAux;
+    float priceAux;
     int stockAux;
     
+    int i;
     int foundIndex;
-    int option;
     char confirmar = 'n';
+    int option;
     
-    printf("\nMODIFICACION DE LIBRO\n\n");
+    printf("\nMODIFICACION DE PUBLICACION\n\n");
     
-    codeAux = getValidInt("Ingrese el codigo del libro a modificar: ", "El codigo del libro debe ser numerico\n", 1, 15000);
-    foundIndex = findBookByCode(bookArray, BOOKS_MAX_QTY, codeAux);
+    userIdAux = getValidInt("Ingrese el ID de usuario: ", "El ID de usuario debe ser numerico\n", 1, 100);
+    if (findUserById(userArray, USERS_MAX_QTY, userIdAux) == -1) {
+        
+        printf("\n\nEL USUARIO NO EXISTE!!!\n");
+        getChar("\n\nENTER (para continuar)");
+    }
+    else {
+        
+        for (i = 0; i < PRODUCTS_MAX_QTY; i++) {
+            if (productArray[i].userId == userIdAux) {
+                showProduct(productArray[i]);
+            }
+        }//for (i = 0; i < PRODUCTS_MAX_QTY; i++)
+        
+        productIdAux = getValidInt("Ingrese el ID del producto a dar de baja: ", "El ID del producto debe ser numerico\n", 1, 1000);
+        
+        foundIndex = findProductById(productArray, PRODUCTS_MAX_QTY, productIdAux);
+        
+        if (foundIndex == -1) {
+            
+            printf("\n\nNO SE ENCONTRO ESE ID\n");
+            getChar("\n\nENTER (para continuar)");
+        }
+        else {
+            
+            showProduct(productArray[foundIndex]);
+            
+            confirmar = confirm("\n\nSe esta por eliminar el producto seleccionado, confirma la baja? [s|n]: ");
+            
+            if (confirmar == 's') {
+                
+                productArray[foundIndex].status = 0;
+                printf("\nSE HA CANCELADO LA PUBLICACION\n\n");
+                getChar("\n\nENTER (para continuar)");
+            }	
+            else {
+                
+                printf("\nNO SE HA CANCELADO LA PUBLICACION\n\n");
+                getChar("\n\nENTER (para continuar)");
+            }
+        }
+    }//if (findUserById(userArray, USERS_MAX_QTY, userIdAux) == -1)
     
-    if (foundIndex == -1) {
+    /*if (foundIndex == -1) {
         
         printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
         getChar("\n\nENTER (para continuar)");
@@ -228,7 +263,7 @@ void controller_modificarBook(book bookArray[], int arrayLenght){
             printf("\nNO SE HA REALIZADO LA MODIFICACION DEL LIBRO\n\n");
             getChar("\n\nENTER (para continuar)");
         }
-    }
+    }*/
 }
 
 /** \brief Pide al usuario los datos de un nuevo autor y luego lo agrega al array
