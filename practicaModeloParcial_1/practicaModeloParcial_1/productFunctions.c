@@ -14,6 +14,7 @@
 #include "types.h"
 #include "productFunctions.h"
 #include "usersFunctions.h"
+#include "salesFunctions.h"
 #include "controllerFunctions.h"
 #include "inputFunctions.h"
 
@@ -29,12 +30,11 @@
 void setProductStatus(product productArray[],int arrayLenght,int value)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
         productArray[i].status = value;
     }
 }
-
 
 
 /**
@@ -48,9 +48,9 @@ void setProductStatus(product productArray[],int arrayLenght,int value)
 int findProductById(product productArray[],int arrayLenght,int id)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
-        if(productArray[i].productId == id && productArray[i].status == 1)
+        if(productArray[i].productId == id && productArray[i].status == ACTIVE)
         {
             return i;
         }
@@ -69,11 +69,11 @@ int findProductById(product productArray[],int arrayLenght,int id)
 int findProductEmptyPlace(product productArray[],int arrayLenght)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
-        if(productArray[i].status == 0)
+        if(productArray[i].status == INACTIVE)
         {
-            return i;
+            return i + 1;
         }
     }
     return -1;
@@ -89,12 +89,12 @@ int findProductEmptyPlace(product productArray[],int arrayLenght)
  * \param nameAux Nombre del producto
  * \param userIdAux Id del usuario
  * \param priceAux Precio del producto
- * \param salesQtyAux Cantidad de ventas del producto
  * \param stockIdAux Cantidad de ejemplaes disponibles
+ * \param salesQtyAux Cantidad de ventas del producto
  * \return -
  *
  */
-void setProduct(product productArray[],int freePlaceIndex, int productIdAux, char nameAux[], int userIdAux, float priceAux, int stockAux, int salesQtyAux)
+void setProduct(product productArray[], int freePlaceIndex, int productIdAux, char nameAux[], int userIdAux, float priceAux, int stockAux, int salesQtyAux)
 {
     productArray[freePlaceIndex].productId = productIdAux;
     strcpy(productArray[freePlaceIndex].name ,nameAux);
@@ -102,7 +102,7 @@ void setProduct(product productArray[],int freePlaceIndex, int productIdAux, cha
     productArray[freePlaceIndex].price = priceAux;
     productArray[freePlaceIndex].stock = stockAux;
     productArray[freePlaceIndex].salesQty = salesQtyAux;
-    productArray[freePlaceIndex].status = 1;
+    productArray[freePlaceIndex].status = ACTIVE;
 }
 
 
@@ -112,18 +112,23 @@ void setProduct(product productArray[],int freePlaceIndex, int productIdAux, cha
  * \param arrayLenght Indica la logitud del array
  * \return -
  */
-void showProductArray(product productArray[],int arrayLenght)
+void showProductArray(product productArray[], int arrayLenght)
 {
     int i;
-    printf("\n|    ID    |                      NOMBRE              | USUARIO |  PRECIO | STOCK | CANTIDAD VENDIDA |");
+    
+    clearScreen();
+    printf("\n------------------------------\n|*  LISTA DE PUBLICACIONES  *|\n------------------------------\n");
+    printf("\n-----------------------------------------------------------------------------------------------------");
+    printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
+    printf("\n-----------------------------------------------------------------------------------------------------");
     for(i=0;i < arrayLenght; i++)
     {
-        if(productArray[i].status != 0)
+        if(productArray[i].status != INACTIVE)
         {
-            printf("\n| %6d  | %-40s | %5d | %.2f | %5d | %5d |", productArray[i].productId, productArray[i].name, productArray[i].userId, productArray[i].price,productArray[i].stock, productArray[i].salesQty);
+            printf("\n| %6d  | %-40s | %7.2f | %16d | %5d | %7d |", productArray[i].productId, productArray[i].name, productArray[i].price, productArray[i].salesQty, productArray[i].stock, productArray[i].userId);
         }
     }
-    
+    printf("\n-----------------------------------------------------------------------------------------------------");
 }
 
 /**
@@ -132,6 +137,47 @@ void showProductArray(product productArray[],int arrayLenght)
  * \return -
  */
 void showProduct(product productArray){
-    printf("\n|    ID    |                      NOMBRE              | USUARIO |  PRECIO | STOCK | CANTIDAD VENDIDA |");
-    printf("\n| %6d  | %-40s | %5d | %.2f | %5d | %5d |", productArray.productId, productArray.name, productArray.userId, productArray.price,productArray.stock, productArray.salesQty);
+    
+    printf("\n| %6d  | %-40s | %7.2f | %16d | %5d | %7d |", productArray.productId, productArray.name, productArray.price, productArray.salesQty, productArray.stock, productArray.userId);
 }
+
+
+/** \brief Lista publicaciones del usuario con el ID ingresado
+ * \param book bookArray El array de libros
+ * \param bookArrayLenght Longitud del array
+ * \param author authorArray El array de autores
+ * \param authorArrayLenght Longitud del array
+ * \return -
+ *
+ */
+void showUserProducts(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght){
+    
+    int i, userIdAux, foundIndex;
+    
+    clearScreen();
+    printf("\n----------------------------------------\
+           \n|*  LISTA DE PUBLICACIONES DE USUARIO *|\
+           \n----------------------------------------\n");
+    
+    userIdAux = getValidInt("\nIngrese el ID del usuario: ", "El ID del usuario debe ser numerico\n", 1, arrayUserLenght);
+    foundIndex = findUserById(userArray, arrayUserLenght, userIdAux);
+    if(foundIndex == -1){
+        
+        printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
+        getChar("\n\nENTER (para continuar)");
+    }
+    else{
+        
+        printf("\n-----------------------------------------------------------------------------------------------------");
+        printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
+        printf("\n-----------------------------------------------------------------------------------------------------");
+        for(i = 0; i < arrayProductLenght; i++){
+            if(productArray[i].status == ACTIVE && userIdAux == productArray[i].userId){
+                showProduct(productArray[i]);
+            }
+        }
+        printf("\n-----------------------------------------------------------------------------------------------------");
+    }// if(foundIndex == -1)
+}// void showAuthorBooks(book bookArray[],int bookArrayLenght, author authorArray[], int authorArrayLenght)
+
+

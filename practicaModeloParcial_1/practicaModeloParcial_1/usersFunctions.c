@@ -14,6 +14,7 @@
 #include "types.h"
 #include "productFunctions.h"
 #include "usersFunctions.h"
+#include "salesFunctions.h"
 #include "controllerFunctions.h"
 #include "inputFunctions.h"
 
@@ -30,7 +31,7 @@
 void setUserStatus(user userArray[],int arrayLenght,int value)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
         userArray[i].status = value;
     }
@@ -46,12 +47,12 @@ void setUserStatus(user userArray[],int arrayLenght,int value)
  * \return Si no hay ocurrencia (-1) y si la hay la posicion de la misma (i)
  *
  */
-int findUserById(user userArray[],int arrayLenght,int id)
+int findUserById(user userArray[],int arrayLenght, int id)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
-        if(userArray[i].userId == id && userArray[i].status == 1)
+        if(userArray[i].userId == id && userArray[i].status == ACTIVE)
         {
             return i;
         }
@@ -70,11 +71,11 @@ int findUserById(user userArray[],int arrayLenght,int id)
 int findUserEmptyPlace(user userArray[],int arrayLenght)
 {
     int i;
-    for(i=0;i < arrayLenght; i++)
+    for(i = 0; i < arrayLenght; i++)
     {
-        if(userArray[i].status == 0)
+        if(userArray[i].status == INACTIVE)
         {
-            return i;
+            return i + 1;
         }
     }
     return -1;
@@ -89,46 +90,75 @@ int findUserEmptyPlace(user userArray[],int arrayLenght)
  * \param userIdAux Id del usuario
  * \param nameAux Nombre del usuario
  * \param passwordAux Password del usuario
- * \param qualificationPromAux Calificacion promedio del usuario
  * \return -
  *
  */
-void setUser(user userArray[],int freePlaceIndex, int userIdAux, char nameAux[], char passwordAux[], int qualificationPromAux)
+void setUser(user userArray[], int freePlaceIndex, int userIdAux, char nameAux[], char passwordAux[])
 {
     userArray[freePlaceIndex].userId = userIdAux;
     strcpy(userArray[freePlaceIndex].name, nameAux);
     strcpy(userArray[freePlaceIndex].password, passwordAux);
-    userArray[freePlaceIndex].qualificationProm = qualificationPromAux;
-    userArray[freePlaceIndex].status = 1;
+    userArray[freePlaceIndex].status = ACTIVE;
 }
 
 
 /**
- * \brief Muestra los usuarios activos por pantalla
- * \param userArray Es el array de usuarios
- * \param arrayLenght Indica la logitud del array
+ * \brief Lista los usuarios registrados
+ * \param userArray Es el array de ususarios
+ * \param arrayUserLenght Longitud del array de ususarios
  * \return -
+ *
  */
-void showUserArray(user userArray[],int arrayLenght)
-{
+void showUserArray(user userArray[], int arrayUserLenght){
     int i;
-    printf("\n|    ID    |                      NOMBRE              | CALIFICACION PROMEDIO |");
-    for(i=0;i < arrayLenght; i++)
-    {
-        if(userArray[i].status != 0)
-        {
-            printf("\n| %6d  | %-40s | %5d |", userArray[i].userId, userArray[i].name, userArray[i].qualificationProm);
+    
+    for (i = 0; i < arrayUserLenght; i++) {
+        if (userArray[i].status != INACTIVE) {
+            
+            printf("\nUserId: %d | Nombre de usuario: %s | Password: %s | Estado: %d", userArray[i].userId, userArray[i].name, userArray[i].password, userArray[i].status);
+            printf("\n");
         }
     }
-    
 }
 
 /**
- * \brief Muestra el producto seleccionado por pantalla
+ * \brief Lista los usuarios activos con la calificación promedio de cada uno
+ * \param userArray Es el array de usuarios
+ * \param arrayUserLenght Indica la logitud del array
+ * \return -
+ *
+ */
+void showUserSaleArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
+{
+    int i;
+    float qualificationAverageAux;
+    
+    printf("\n------------------------------------------------------------------------------");
+    printf("\n|    ID   |                      NOMBRE              | CALIFICACION PROMEDIO |");
+    printf("\n------------------------------------------------------------------------------");
+    for(i = 0; i < arrayUserLenght; i++) {
+        if(userArray[i].status != INACTIVE) {
+            
+            qualificationAverageAux = qualificationAverage(saleArray, arraySaleLenght, userArray[i].userId);
+            
+            printf("\n| %6d  | %-40s | %21.2f |", userArray[i].userId, userArray[i].name, qualificationAverageAux);
+            
+        }// if(saleArray[i].status != INACTIVE)
+    }// for(i = 0; i < arraySaleLenght; i++)
+    printf("\n------------------------------------------------------------------------------");
+}// void showUserArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
+
+
+/**
+ * \brief Muestra el usuario seleccionado por pantalla
  * \param userArray Es el array a mostrar
  * \return -
  */
 void showUser(user userArray){
-    printf("\n|    ID    |                      NOMBRE              | CALIFICACION PROMEDIO |");
-    printf("\n| %6d  | %-40s | %5d |", userArray.userId, userArray.name, userArray.qualificationProm);
+    
+    printf("\n---------------------------------------------------");
+    printf("\n|    ID  |            NOMBRE DE USUARIO           |");
+    printf("\n---------------------------------------------------");
+    printf("\n| %6d |  %-37s |", userArray.userId, userArray.name);
+    printf("\n---------------------------------------------------");
 }

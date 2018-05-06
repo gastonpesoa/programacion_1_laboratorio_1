@@ -15,6 +15,7 @@
 #include "types.h"
 #include "productFunctions.h"
 #include "usersFunctions.h"
+#include "salesFunctions.h"
 #include "controllerFunctions.h"
 #include "inputFunctions.h"
 
@@ -72,13 +73,13 @@ char getChar(char mensaje[])
  * \param iniciar Indica si se trata del primer n˙mero solicitado 1 indica que si
  * \return retorna el n˙mero aleatorio generado
  *
- */
+
 char getNumeroAleatorio(int desde , int hasta, int iniciar)
 {
     if(iniciar)
-        srand (time(NULL));
+        srand(time(NULL));
     return desde + (rand() % (hasta + 1 - desde)) ;
-}
+} */
 
 
 /**
@@ -247,10 +248,12 @@ int getStringLetras(char mensaje[],char input[])
 int getStringLetrasNombre(char mensaje[], char input[])
 {
     char auxiliar[256];
-    int i, auxiliarLenght;
+    int i;
+    unsigned long auxiliarLenght;
+    
     getStringNombre(mensaje, auxiliar);
-    if(esSoloLetras(auxiliar))
-    {
+    if(esSoloLetras(auxiliar)){
+        
         auxiliarLenght = strlen(auxiliar);
         for (i = 0; i < auxiliarLenght; i++) {
             auxiliar[i] = tolower(auxiliar[i]);
@@ -262,6 +265,24 @@ int getStringLetrasNombre(char mensaje[], char input[])
             }
         }
         strcpy(input, auxiliar);
+        return 1;
+    }
+    return 0;
+}
+
+/**
+ * \brief Solicita un texto al usuario y lo devuelve
+ * \param mensaje Es el mensaje a ser mostrado
+ * \param input Array donde se cargara el texto ingresado
+ * \return 1 si el texto contiene solo letras y numeros
+ */
+int getStringAlfanumerico(char mensaje[],char input[])
+{
+    char aux[256];
+    getString(mensaje,aux);
+    if(esAlfaNumerico(aux))
+    {
+        strcpy(input,aux);
         return 1;
     }
     return 0;
@@ -329,7 +350,7 @@ int getValidInt(char requestMessage[],char errorMessage[], int lowLimit, int hiL
         auxInt = atoi(auxStr);
         if(auxInt < lowLimit || auxInt > hiLimit)
         {
-            printf ("El numero del debe ser mayor a %d y menor a %d\n",lowLimit,hiLimit);
+            printf ("\nEl numero del debe ser mayor a %d y menor a %d\n",lowLimit,hiLimit);
             continue;
             
         }
@@ -389,6 +410,51 @@ void getValidString(char requestMessage[],char errorMessage[], char input[])
         break;
     }
     
+}
+
+/**
+ * \brief Solicita un string
+ * \param requestMessage Es el mensaje a ser mostrado para solicitar el dato
+ * \param requestMessage Es el mensaje a ser mostrado en caso de error
+ * \param input Array donde se cargar· el texto ingresado
+ * \return -
+ *
+ */
+void getValidStringAlfanumerico(char requestMessage[],char errorMessage[], char input[])
+{
+    while(1)
+    {
+        if (!getStringAlfanumerico(requestMessage,input))
+        {
+            printf ("%s\n",errorMessage);
+            continue;
+        }
+        //cleanStdin();
+        break;
+    }
+}
+
+
+/**
+ * \brief Solicita un string
+ * \param requestMessage Es el mensaje a ser mostrado para solicitar el dato
+ * \param requestMessage Es el mensaje a ser mostrado en caso de error
+ * \param input Array donde se cargar· el texto ingresado
+ * \return -
+ *
+ */
+void getValidStringNombre(char requestMessage[],char errorMessage[], char input[])
+{
+    while(1)
+    {
+        if (!getStringLetrasNombre(requestMessage, input))
+        {
+            printf ("%s\n",errorMessage);
+            continue;
+        }
+        //cleanStdin();
+        break;
+    }
 }
 
 
