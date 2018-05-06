@@ -16,6 +16,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 
@@ -106,7 +107,6 @@ int main(void) {
                 showUserSaleArray(userArray, USERS_MAX_QTY, saleArray, SALES_MAX_QTY);
                 getChar("\n\nENTER (para continuar)");
                 break;
-                
             
         }//switch (option)
     }//while (option != 4)

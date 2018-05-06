@@ -16,7 +16,6 @@ int findSaleEmptyPlace(sale saleArray[], int arrayLenght);
 void setSale(sale saleArray[], int freePlaceIndex, int userIdAux, int qualificationPromAux);
 
 void showSaleArray(sale saleArray[], int arraySaleLenght);
-void showSaleUserArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght);
 
 float qualificationAverage(sale saleArray[], int arraySaleLenght, int userIdAux);
 

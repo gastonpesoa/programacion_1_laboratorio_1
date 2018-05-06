@@ -16,6 +16,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 
@@ -36,7 +37,6 @@ void setUserStatus(user userArray[],int arrayLenght,int value)
         userArray[i].status = value;
     }
 }
-
 
 
 /**
@@ -82,7 +82,6 @@ int findUserEmptyPlace(user userArray[],int arrayLenght)
 }
 
 
-
 /**
  * \brief Carga los valores del usuario
  * \param userArray Es el array de usuarios
@@ -120,33 +119,6 @@ void showUserArray(user userArray[], int arrayUserLenght){
         }
     }
 }
-
-/**
- * \brief Lista los usuarios activos con la calificación promedio de cada uno
- * \param userArray Es el array de usuarios
- * \param arrayUserLenght Indica la logitud del array
- * \return -
- *
- */
-void showUserSaleArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
-{
-    int i;
-    float qualificationAverageAux;
-    
-    printf("\n------------------------------------------------------------------------------");
-    printf("\n|    ID   |                      NOMBRE              | CALIFICACION PROMEDIO |");
-    printf("\n------------------------------------------------------------------------------");
-    for(i = 0; i < arrayUserLenght; i++) {
-        if(userArray[i].status != INACTIVE) {
-            
-            qualificationAverageAux = qualificationAverage(saleArray, arraySaleLenght, userArray[i].userId);
-            
-            printf("\n| %6d  | %-40s | %21.2f |", userArray[i].userId, userArray[i].name, qualificationAverageAux);
-            
-        }// if(saleArray[i].status != INACTIVE)
-    }// for(i = 0; i < arraySaleLenght; i++)
-    printf("\n------------------------------------------------------------------------------");
-}// void showUserArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
 
 
 /**

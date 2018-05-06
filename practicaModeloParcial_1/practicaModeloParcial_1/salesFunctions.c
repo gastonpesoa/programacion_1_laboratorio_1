@@ -18,6 +18,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 
@@ -118,39 +119,6 @@ void showSaleArray(sale saleArray[], int arraySaleLenght){
         }
     }
 }
-
-
-/**
- * \brief Lista los usuarios activos con la calificación promedio de cada uno
- * \param userArray Es el array de usuarios
- * \param arrayUserLenght Indica la logitud del array
- * \return -
- *
- */
-void showSaleUserArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
-{
-    int i;
-    char nameAux[51];
-    int userIdAux;
-    float qualificationAverageAux;
-    
-    printf("\n|    ID   |                      NOMBRE              | CALIFICACION PROMEDIO |");
-    for(i = 0; i < arraySaleLenght; i++)
-    {
-        if(saleArray[i].status != INACTIVE)
-        {
-
-            userIdAux = findUserById(userArray, arrayUserLenght, saleArray[i].userId);
-            strcpy(nameAux, userArray[userIdAux].name);
-            
-            qualificationAverageAux = qualificationAverage(saleArray, arraySaleLenght, userIdAux);
-            
-            printf("\n| %6d  | %-40s | %21.2f |", saleArray[i].userId, nameAux, qualificationAverageAux);
-            
-        }// if(saleArray[i].status != INACTIVE)
-    }// for(i = 0; i < arraySaleLenght; i++)
-}// void showUserArray(user userArray[],int arrayUserLenght, sale saleArray[], int arraySaleLenght)
-
 
 
 /**

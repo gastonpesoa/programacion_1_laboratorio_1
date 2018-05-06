@@ -16,6 +16,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 
@@ -142,42 +143,6 @@ void showProduct(product productArray){
 }
 
 
-/** \brief Lista publicaciones del usuario con el ID ingresado
- * \param book bookArray El array de libros
- * \param bookArrayLenght Longitud del array
- * \param author authorArray El array de autores
- * \param authorArrayLenght Longitud del array
- * \return -
- *
- */
-void showUserProducts(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght){
-    
-    int i, userIdAux, foundIndex;
-    
-    clearScreen();
-    printf("\n----------------------------------------\
-           \n|*  LISTA DE PUBLICACIONES DE USUARIO *|\
-           \n----------------------------------------\n");
-    
-    userIdAux = getValidInt("\nIngrese el ID del usuario: ", "El ID del usuario debe ser numerico\n", 1, arrayUserLenght);
-    foundIndex = findUserById(userArray, arrayUserLenght, userIdAux);
-    if(foundIndex == -1){
-        
-        printf("\n\nNO SE ENCONTRO ESE CODIGO\n");
-        getChar("\n\nENTER (para continuar)");
-    }
-    else{
-        
-        printf("\n-----------------------------------------------------------------------------------------------------");
-        printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
-        printf("\n-----------------------------------------------------------------------------------------------------");
-        for(i = 0; i < arrayProductLenght; i++){
-            if(productArray[i].status == ACTIVE && userIdAux == productArray[i].userId){
-                showProduct(productArray[i]);
-            }
-        }
-        printf("\n-----------------------------------------------------------------------------------------------------");
-    }// if(foundIndex == -1)
-}// void showAuthorBooks(book bookArray[],int bookArrayLenght, author authorArray[], int authorArrayLenght)
+
 
 

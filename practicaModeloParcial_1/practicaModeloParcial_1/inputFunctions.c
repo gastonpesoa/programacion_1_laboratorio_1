@@ -17,6 +17,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 

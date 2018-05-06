@@ -13,13 +13,13 @@
 
 void controller_test(product productArray[], user userArray[], sale saleArray[]);
 
-void controller_altaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
-void controller_bajaProduct(product productArray[], int arrayLenght, user userArray[], int arrayUserLenght);
-void controller_modificarProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
-
 void controller_altaUser(user userArray[], int arrayUserLenght);
-void controller_bajaUser(user userArray[], int arrayLenght, product productArray[], int productArrayLenght);
 void controller_modificarUser(user userArray[], int arrayUserLenght);
+void controller_bajaUser(user userArray[], int arrayLenght, product productArray[], int productArrayLenght);
+
+void controller_altaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
+void controller_modificarProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght);
+void controller_bajaProduct(product productArray[], int arrayLenght, user userArray[], int arrayUserLenght);
 
 void controller_buyProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght, sale saleArray[], int arraySaleLenght);
 

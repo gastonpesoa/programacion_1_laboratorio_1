@@ -16,6 +16,7 @@
 #include "usersFunctions.h"
 #include "salesFunctions.h"
 #include "controllerFunctions.h"
+#include "listFunctions.h"
 #include "inputFunctions.h"
 
 
@@ -87,63 +88,6 @@ void controller_altaUser(user userArray[], int arrayUserLenght){
 }// void controller_altaUser(user userArray[], int arrayUserLenght)
 
 
-
-/** \brief Pide al usuario el ID del ususario a ser dado de baja, luego de validar y confirmar lo da de baja junto con todas sus publicaciones
- * \param userArray El array de usuarios donde se buscara el usuario a eliminar
- * \param arrayUserLenght Longitud del array de usuarios
- * \param productArray El array de productos donde se buscaran las publicaciones del usuario a eliminar
- * \param arrayProductLenght Longitud del array de usuarios
- * \return -
- *
- */
-void controller_bajaUser(user userArray[], int arrayUserLenght, product productArray[], int arrayProductLenght){
-    
-    int userIdAux;
-    
-    int foundIndex;
-    char confirmar = 'n';
-    int i;
-    
-    clearScreen();
-    printf("\n-----------------------\n|*  BAJA DE USUARIO  *|\n-----------------------\n");
-    
-    userIdAux = getValidInt("\nIngrese el ID del usuario : ","El ID de usuario debe ser numerico\n", 1, arrayUserLenght);
-    foundIndex = findUserById(userArray, arrayUserLenght, userIdAux);
-    if (foundIndex == -1) {
-        
-        printf("\n\nNO SE ENCONTRO ESE ID\n");
-        getChar("\n\nENTER (para continuar)");
-    }
-    else {
-        
-        // Se muestra el usuario a dar de baja
-        showUser(userArray[foundIndex]);
-        
-        confirmar = confirm("\n\nSe esta por eliminar el usuario seleccionado, confirma la baja? [s|n]: ");
-        if (confirmar == 's') {
-            
-            // Se eliminan las publicaciones del usuario
-            for(i = 0; i < arrayProductLenght; i++){
-                if(productArray[i].userId == userIdAux){
-                    productArray[i].status = INACTIVE;
-                }
-            }// for(i = 0; i < arrayProductLenght; i++)
-            
-            // Se da de baja al usuario
-            userArray[foundIndex].status = INACTIVE;
-            printf("\nSE HA DADO DE BAJA AL USUARIO\n\n");
-            getChar("\n\nENTER (para continuar)");
-        }
-        else {
-            
-            printf("\nNO SE HA REALIZADO LA BAJA DEL USUARIO\n\n");
-            getChar("\n\nENTER (para continuar)");
-            
-        }//  if (confirmar == 's')
-    }// if (foundIndex == -1)
-}// void controller_bajaUser(user userArray[], int arrayLenght, product productArray[], int productArrayLenght)
-
-
 /** \brief Pide al usuario el ID de usuario a ser modificado, despliega un menu de opciones con los campos disponibles y luego de confirmar los modifica
  * \param userArray El array de usuarios donde se buscara el usuario a ser modificado
  * \param arrayUserLenght Longitud del array de usuarios
@@ -161,10 +105,10 @@ void controller_modificarUser(user userArray[], int arrayUserLenght){
     int option;
     
     char menuModificarUserMensaje[] =
-                    "\n\n1 - MODIFICAR NOMBRE\
-                    \n2 - MODIFICAR PASSWORD\
-                    \n3 - REGRESAR\
-                    \n\nIngrese una opcion: ";
+    "\n\n1 - MODIFICAR NOMBRE\
+    \n2 - MODIFICAR PASSWORD\
+    \n3 - REGRESAR\
+    \n\nIngrese una opcion: ";
     
     char menuModificarUserMensajeError[] = "\nSe debe elegir una opcion del 1 al 3";
     
@@ -224,6 +168,62 @@ void controller_modificarUser(user userArray[], int arrayUserLenght){
 }
 
 
+/** \brief Pide al usuario el ID del ususario a ser dado de baja, luego de validar y confirmar lo da de baja junto con todas sus publicaciones
+ * \param userArray El array de usuarios donde se buscara el usuario a eliminar
+ * \param arrayUserLenght Longitud del array de usuarios
+ * \param productArray El array de productos donde se buscaran las publicaciones del usuario a eliminar
+ * \param arrayProductLenght Longitud del array de usuarios
+ * \return -
+ *
+ */
+void controller_bajaUser(user userArray[], int arrayUserLenght, product productArray[], int arrayProductLenght){
+    
+    int userIdAux;
+    
+    int foundIndex;
+    char confirmar = 'n';
+    int i;
+    
+    clearScreen();
+    printf("\n-----------------------\n|*  BAJA DE USUARIO  *|\n-----------------------\n");
+    
+    userIdAux = getValidInt("\nIngrese el ID del usuario : ","El ID de usuario debe ser numerico\n", 1, arrayUserLenght);
+    foundIndex = findUserById(userArray, arrayUserLenght, userIdAux);
+    if (foundIndex == -1) {
+        
+        printf("\n\nNO SE ENCONTRO ESE ID\n");
+        getChar("\n\nENTER (para continuar)");
+    }
+    else {
+        
+        // Se muestra el usuario a dar de baja
+        showUser(userArray[foundIndex]);
+        
+        confirmar = confirm("\n\nSe esta por eliminar el usuario seleccionado, confirma la baja? [s|n]: ");
+        if (confirmar == 's') {
+            
+            // Se eliminan las publicaciones del usuario
+            for(i = 0; i < arrayProductLenght; i++){
+                if(productArray[i].userId == userIdAux){
+                    productArray[i].status = INACTIVE;
+                }
+            }// for(i = 0; i < arrayProductLenght; i++)
+            
+            // Se da de baja al usuario
+            userArray[foundIndex].status = INACTIVE;
+            printf("\nSE HA DADO DE BAJA AL USUARIO\n\n");
+            getChar("\n\nENTER (para continuar)");
+        }
+        else {
+            
+            printf("\nNO SE HA REALIZADO LA BAJA DEL USUARIO\n\n");
+            getChar("\n\nENTER (para continuar)");
+            
+        }//  if (confirmar == 's')
+    }// if (foundIndex == -1)
+}// void controller_bajaUser(user userArray[], int arrayLenght, product productArray[], int productArrayLenght)
+
+
 /** \brief Pide al usuario los datos de un nuevo producto y luego lo agrega al array
  * \param productArray el array de productos donde se alamcenara el nuevo producto
  * \param arrayProductLenght Longitud del array de productos
@@ -281,78 +281,6 @@ void controller_altaProduct(product productArray[], int arrayProductLenght, user
     }//if (freePlaceIndex == -1)
 }//void controller_altaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght)
 
-
-/** \brief Pide al usuario el ID de usuario y el codigo del producto a ser dado de baja, luego de validar y confirmar cancela la publicacion
- * \param productArray El array de productos donde se buscara la publicacion a eliminar
- * \param arrayProductLenght Longitud del array de usuarios
- * \param userArray El array de usuarios donde se buscara el usuario del que se desea eliminar su publicacion
- * \param arrayUserLenght Longitud del array de usuarios
- * \return -
- *
- */
-void controller_bajaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght){
-    
-    int productIdAux;
-    int userIdAux;
-    
-    int i;
-    int foundIndex;
-    char confirmar = 'n';
-    
-    printf("\n----------------------------\n|*  CANCELAR PUBLICACIÓN  *|\n----------------------------\n");
-    
-    userIdAux = getValidInt("\nIngrese el ID de usuario: ", "El ID de usuario debe ser numerico", 1, 100);
-    if (findUserById(userArray, arrayUserLenght, userIdAux) == -1) {
-        
-        printf("\n\nEL USUARIO NO EXISTE!!!\n");
-        getChar("\n\nENTER (para continuar)");
-    }
-    else {
-        
-        //Se listan los productos del usuario ingresado
-        printf("\n-----------------------------------------------------------------------------------------------------");
-        printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
-        printf("\n-----------------------------------------------------------------------------------------------------");
-        for (i = 0; i < arrayProductLenght; i++) {
-            if (productArray[i].userId == userIdAux) {
-                
-                showProduct(productArray[i]);
-            }
-        }//for (i = 0; i < PRODUCTS_MAX_QTY; i++)
-        printf("\n-----------------------------------------------------------------------------------------------------\n");
-        
-        productIdAux = getValidInt("\nIngrese el ID del producto a dar de baja: ", "El ID del producto debe ser numerico\n", 1, 1000);
-        foundIndex = findProductById(productArray, arrayProductLenght, productIdAux);
-        if (foundIndex == -1) {
-            
-            printf("\n\nNO SE ENCONTRO ESE ID\n");
-            getChar("\n\nENTER (para continuar)");
-        }
-        else {
-            
-            //Se muestra el producto seleccionado
-            printf("\n-----------------------------------------------------------------------------------------------------");
-            printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
-            printf("\n-----------------------------------------------------------------------------------------------------");
-            showProduct(productArray[foundIndex]);
-            printf("\n-----------------------------------------------------------------------------------------------------\n");
-            
-            confirmar = confirm("\n\nSe esta por eliminar el producto seleccionado, confirma la baja? [s|n]: ");
-            if (confirmar == 's') {
-                
-                productArray[foundIndex].status = INACTIVE;
-                printf("\nSE HA CANCELADO LA PUBLICACION\n\n");
-                getChar("\n\nENTER (para continuar)");
-            }
-            else {
-                
-                printf("\nNO SE HA CANCELADO LA PUBLICACION\n\n");
-                getChar("\n\nENTER (para continuar)");
-                
-            }// if (confirmar == 's')
-        } //if (foundIndex == -1)
-    }// if (findUserById(userArray, USERS_MAX_QTY, userIdAux) == -1)
-}
 
 /** \brief Pide al usuario el ID del producto a ser modificado, despliega un menu de opciones de los campos disponibles y luego de confirmar los modifica
  * \param productArray El array de productos donde se buscara la publicacion a modificar
@@ -467,6 +395,79 @@ void controller_modificarProduct(product productArray[], int arrayProductLenght,
 }
 
 
+/** \brief Pide al usuario el ID de usuario y el codigo del producto a ser dado de baja, luego de validar y confirmar cancela la publicacion
+ * \param productArray El array de productos donde se buscara la publicacion a eliminar
+ * \param arrayProductLenght Longitud del array de usuarios
+ * \param userArray El array de usuarios donde se buscara el usuario del que se desea eliminar su publicacion
+ * \param arrayUserLenght Longitud del array de usuarios
+ * \return -
+ *
+ */
+void controller_bajaProduct(product productArray[], int arrayProductLenght, user userArray[], int arrayUserLenght){
+    
+    int productIdAux;
+    int userIdAux;
+    
+    int i;
+    int foundIndex;
+    char confirmar = 'n';
+    
+    printf("\n----------------------------\n|*  CANCELAR PUBLICACIÓN  *|\n----------------------------\n");
+    
+    userIdAux = getValidInt("\nIngrese el ID de usuario: ", "El ID de usuario debe ser numerico", 1, 100);
+    if (findUserById(userArray, arrayUserLenght, userIdAux) == -1) {
+        
+        printf("\n\nEL USUARIO NO EXISTE!!!\n");
+        getChar("\n\nENTER (para continuar)");
+    }
+    else {
+        
+        //Se listan los productos del usuario ingresado
+        printf("\n-----------------------------------------------------------------------------------------------------");
+        printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
+        printf("\n-----------------------------------------------------------------------------------------------------");
+        for (i = 0; i < arrayProductLenght; i++) {
+            if (productArray[i].userId == userIdAux) {
+                
+                showProduct(productArray[i]);
+            }
+        }//for (i = 0; i < PRODUCTS_MAX_QTY; i++)
+        printf("\n-----------------------------------------------------------------------------------------------------\n");
+        
+        productIdAux = getValidInt("\nIngrese el ID del producto a dar de baja: ", "El ID del producto debe ser numerico\n", 1, 1000);
+        foundIndex = findProductById(productArray, arrayProductLenght, productIdAux);
+        if (foundIndex == -1) {
+            
+            printf("\n\nNO SE ENCONTRO ESE ID\n");
+            getChar("\n\nENTER (para continuar)");
+        }
+        else {
+            
+            //Se muestra el producto seleccionado
+            printf("\n-----------------------------------------------------------------------------------------------------");
+            printf("\n|    ID   |                      NOMBRE              |  PRECIO | CANTIDAD VENDIDA | STOCK | USUARIO |");
+            printf("\n-----------------------------------------------------------------------------------------------------");
+            showProduct(productArray[foundIndex]);
+            printf("\n-----------------------------------------------------------------------------------------------------\n");
+            
+            confirmar = confirm("\n\nSe esta por eliminar el producto seleccionado, confirma la baja? [s|n]: ");
+            if (confirmar == 's') {
+                
+                productArray[foundIndex].status = INACTIVE;
+                printf("\nSE HA CANCELADO LA PUBLICACION\n\n");
+                getChar("\n\nENTER (para continuar)");
+            }
+            else {
+                
+                printf("\nNO SE HA CANCELADO LA PUBLICACION\n\n");
+                getChar("\n\nENTER (para continuar)");
+                
+            }// if (confirmar == 's')
+        } //if (foundIndex == -1)
+    }// if (findUserById(userArray, USERS_MAX_QTY, userIdAux) == -1)
+}
+
+
 /** \brief Lista las publicaciones disponibles y solicita el ID del producto que se desea comprar, 
  * \en el caso que haya stock se realizará la compra y se ingresará una calificación para el vendedor
  * \param productArray El array de productos donde se buscara el ID del producto que se dessea comprar
@@ -545,8 +546,6 @@ void controller_buyProduct(product productArray[], int arrayProductLenght, user 
         }// if (foundIndex == -1)
     }// if (freePlaceIndex == -1)
 }// void controller_buyProduct(product productArray[], int arrayProductLenght)
-
-
 
 
 /** \brief Funcion que solicita un caracter 's' o 'n', valida que sea ingresado correctamente y devuelve el resultado
