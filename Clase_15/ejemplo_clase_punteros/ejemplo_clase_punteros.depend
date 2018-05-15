@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1526338475 source:d:\gaston pesoa\ejemplo_clase_punteros\main.c
+	<stdio.h>
+	<stdlib.h>
+
