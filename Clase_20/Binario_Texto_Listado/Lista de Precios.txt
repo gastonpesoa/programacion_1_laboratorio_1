@@ -1,0 +1,6 @@
+Listado de Alumnos
+
+
+Legajo    Nombre     Promedio 
+212	Gomez Pedro	6.50
+123	Perez Juan	8.00
