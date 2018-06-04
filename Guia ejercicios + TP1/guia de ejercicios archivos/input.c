@@ -26,6 +26,20 @@ void clearScreen(void){
 }
 
 
+char confirm(char confirmMessage){
+    
+    char confirmar = 'n';
+    
+    do{
+        printf("%s",confirmMessage);
+        cleanStdin();
+        scanf("%c",&confirmar);
+        confirmar = tolower(confirmar);
+    } while(confirmar != 's' && confirmar != 'n');
+    return confirmar;
+}
+
+
 int getInt(char mensaje[]){
     
     int auxiliar;
