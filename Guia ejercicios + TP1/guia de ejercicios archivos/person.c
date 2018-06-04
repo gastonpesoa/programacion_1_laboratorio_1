@@ -16,6 +16,10 @@
 EPerson *person_newPerson(void){
     
     EPerson* person = (EPerson*)malloc(sizeof(EPerson));
+    if(person == NULL){
+        printf("\nNo queda espacio en memoria\n");
+        exit(0);
+    }
     return person;
 }
 
