@@ -26,7 +26,7 @@ void clearScreen(void){
 }
 
 
-char confirm(char confirmMessage){
+char confirm(char confirmMessage[]){
     
     char confirmar = 'n';
     
