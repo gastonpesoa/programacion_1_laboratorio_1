@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "ArrayList.h"
 #include "Employee.h"
+#include "input.h"
+
 
 /****************************************************
     Menu:
@@ -14,9 +16,47 @@
 *****************************************************/
 
 
-int main()
-{
+int main(){
 
+    FILE *ptrFile;
+
+
+    int option = 0;
+    //Employee* empleado = employee_new();
+    ArrayList* lista = al_newArrayList();
+
+     while(option != 7)
+    {
+        printf("\n--------------------------------------------\
+                  \n|*             MENU PRINCIPAL             *|\
+                  \n--------------------------------------------");
+
+        option = optionMenu();
+
+        switch(option)
+        {
+            case 1:
+
+                parserEmployee(ptrFile,lista);
+                break;
+            case 2:
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+                continue;
+        }
+    }
 
     return 0;
 }

@@ -28,11 +28,19 @@ struct
 }typedef Employee;
 
 
+//int employee_setName(Employee *ptrPerson, char nameAux[],int lowLimit,int hiLimit);
+//int employee_setLastName(Employee *ptrPerson, char nameAux[],int lowLimit,int hiLimit);
+
 int employee_compare(void* pEmployeeA,void* pEmployeeB);
 void employee_print(Employee* this);
 Employee* employee_new(void);
 void employee_delete(Employee* this);
+
 int employee_setId(Employee* this, int id);
+int employee_setName(Employee* this, char* name);
+int employee_setLastName(Employee* this, char* lastName);
+int employee_setIsEmpty(Employee* this, int isEmpty);
+
 int employee_getId(Employee* this);
 #endif // _EMPLOYEE_H
 
