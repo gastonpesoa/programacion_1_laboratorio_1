@@ -18,21 +18,22 @@
 
 #ifndef _EMPLOYEE_H
 #define _EMPLOYEE_H
-struct
-{
+
+struct{
     int id;
     char name[51];
     char lastName[51];
     int isEmpty;
-
 }typedef Employee;
 
-
-//int employee_setName(Employee *ptrPerson, char nameAux[],int lowLimit,int hiLimit);
-//int employee_setLastName(Employee *ptrPerson, char nameAux[],int lowLimit,int hiLimit);
+void askName(char *input);
+void askLastName(char *input);
 
 int employee_compare(void* pEmployeeA,void* pEmployeeB);
+
 void employee_print(Employee* this);
+void employee_printAll(Employee* this,ArrayList* lista);
+
 Employee* employee_new(void);
 void employee_delete(Employee* this);
 
@@ -42,6 +43,10 @@ int employee_setLastName(Employee* this, char* lastName);
 int employee_setIsEmpty(Employee* this, int isEmpty);
 
 int employee_getId(Employee* this);
+char *employee_getName(Employee* this);
+char *employee_getLastName(Employee* this);
+int employee_getIsEmpty(Employee* this);
+
 #endif // _EMPLOYEE_H
 
 

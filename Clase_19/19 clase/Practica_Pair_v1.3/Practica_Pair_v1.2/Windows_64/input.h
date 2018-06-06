@@ -1,6 +1,8 @@
 
 #include <stdio.h>
 
+int optionMenu(void);
+
 /**
  * \brief Limpia el stdin, similar a fflush
  * \param -

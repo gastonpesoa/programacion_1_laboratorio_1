@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "ArrayList.h"
 #include "Employee.h"
 #include "input.h"
+#include "parser.h"
 
 
 int optionMenu(void){
