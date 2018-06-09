@@ -29,12 +29,12 @@
 int main(void)
 {
         //startTesting(1);
-        //startTesting(2);
+        startTesting(2);
         //startTesting(3);
         //startTesting(4);
         //startTesting(5);
         //startTesting(6);
-        startTesting(7);
+        //startTesting(7);
         //startTesting(8);
         //startTesting(9);
         //startTesting(10);
