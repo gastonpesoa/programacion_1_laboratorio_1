@@ -21,12 +21,12 @@ ArrayList* al_newArrayList(void){
 
     ArrayList* this;
     ArrayList* returnAux = NULL;
-    void* pElements;
+    void** pElements;
     this = (ArrayList *)malloc(sizeof(ArrayList));
 
     if(this != NULL){
 
-        pElements = malloc(sizeof(void *)*AL_INITIAL_VALUE );
+        pElements = (void**)malloc(sizeof(void *)*AL_INITIAL_VALUE );
         if(pElements != NULL){
 
             this->size=0;
@@ -52,6 +52,7 @@ ArrayList* al_newArrayList(void){
         }
         else{
             free(this);
+            this = NULL;
         }
     }
 
@@ -82,7 +83,7 @@ int al_add(ArrayList* this, void* pElement){
     if(this->size >= this->reservedSize){
 
         this->reservedSize += AL_INCREMENT;
-        thisAux = (void**)realloc(this->pElements, sizeof(ArrayList*)*this->reservedSize);
+        thisAux = (void**)realloc(this->pElements, sizeof(void*)*this->reservedSize);
 
         if(thisAux == NULL){
 
@@ -103,17 +104,29 @@ int al_add(ArrayList* this, void* pElement){
  */
 int al_deleteArrayList(ArrayList* this){
 
+    void* ptrElement;
+    int i;
+
     if(this == NULL){
 
         return -1;
     }
 
+    for(i = this->len(this); i >= 0 ; i--){
+
+        ptrElement = this->get(this,i);
+        //(*(ptrElement))->isEmpty = 0;
+        free(ptrElement);
+        this->size--;
+    }
+    this->reservedSize = 0;
+
     /*if(this->size < 1){
 
         return 1;
     }*/
-
     free(this->pElements);
+    free(this);
     return 0;
 }
 
@@ -167,9 +180,9 @@ int al_contains(ArrayList* this, void* pElement){
         return -1;
     }
 
-    for(i = 0; i < al_len(this); i++){
+    for(i = 0; i < this->len(this); i++){
 
-        if(al_get(this,i) == pElement){
+        if(this->get(this,i) == pElement){
 
             return 1;
         }
@@ -339,13 +352,12 @@ int al_isEmpty(ArrayList* this){
         return -1;
     }
 
-    if(al_len(this) == 0){
+    if(this->len(this) == 0){
         return 1;
     }
 
     return 0;
 }
-
 
 
 
