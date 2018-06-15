@@ -430,24 +430,47 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order){
             temp = this->get(this,i);
             j = i - 1;
 
-            if(pFunc(this->get(this,j),temp) == 1 && order == 1){
+            if(order == 1){
 
-                while(j >= 0 && temp < this->get(this,j)){
+                if(pFunc(this->get(this,j),temp) == 1){
 
-                    this->pElements[j+1] = this->get(this,j);
-                    j--;
+                    while(j >= 0 && temp < this->get(this,j)){
+
+                        this->pElements[j+1] = this->get(this,j);
+                        j--;
+                    }
+                    this->pElements[j+1] = temp;
                 }
-                this->pElements[j+1] = temp;
+                else {
+
+                    if(pFunc(this->get(this,j),temp) == -1){
+                        continue;
+                    }
+                    else{
+                        continue;
+                    }
+                }
             }
+            else {
 
-            if(pFunc(this->get(this,j),temp) == -1 && order == 0){
+                if(pFunc(this->get(this,j),temp) == -1){
 
-                while(j >= 0 && temp > this->get(this,j)){
+                    while(j >= 0 && temp > this->get(this,j)){
 
-                    this->pElements[j+1] = this->get(this,j);
-                    j--;
+                        this->pElements[j+1] = this->get(this,j);
+                        j--;
+                    }
+                    this->pElements[j+1] = temp;
                 }
-                this->pElements[j+1] = temp;
+                else {
+
+                   if(pFunc(this->get(this,j),temp) == 1){
+                        continue;
+                    }
+                    else{
+                        continue;
+                    }
+                }
             }
         } // for(i = 1; i < this->len(this); i++)
         returnAux = 0;
