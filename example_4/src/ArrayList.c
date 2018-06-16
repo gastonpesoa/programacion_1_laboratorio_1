@@ -429,24 +429,27 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order){
             temp = this->get(this,i);
             j = i - 1;
 
-            if(order == 1){
+            if(pFunc(this->get(this,j),temp) != 0){
 
-                while (j >= 0 && pFunc(this->get(this,j),temp) == 1){
+                if(order == 1){
 
-                    this->pElements[j+1] = this->get(this,j);
-                    j--;
+                    while (j >= 0 && pFunc(this->get(this,j),temp) == 1){
+
+                        this->pElements[j+1] = this->get(this,j);
+                        j--;
+                    }
+                    this->pElements[j+1] = temp;
                 }
-                this->pElements[j+1] = temp;
-            }
-            else {
+                else {
 
-                while (j >= 0 && pFunc(this->get(this,j),temp) == -1){
+                    while (j >= 0 && pFunc(this->get(this,j),temp) == -1){
 
-                    this->pElements[j+1] = this->get(this,j);
-                    j--;
-                }
-                this->pElements[j+1] = temp;
-            }
+                        this->pElements[j+1] = this->get(this,j);
+                        j--;
+                    }
+                    this->pElements[j+1] = temp;
+                } //  if(order == 1)
+            } // if(returnedPFunc != 0)
         } // for(i = 1; i < this->len(this); i++)
         returnAux = 0;
     } // if(this != NULL && thisAux != NULL && pFunc != NULL && (order == 0 || order == 1))
