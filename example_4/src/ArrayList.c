@@ -419,11 +419,10 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order){
 
     int returnAux = -1;
-    ArrayList* thisAux = al_newArrayList();
-    void* temp;
+    void* temp = NULL;
     int i, j;
 
-    if(this != NULL && thisAux != NULL && pFunc != NULL && (order == 0 || order == 1)){
+    if(this != NULL && pFunc != NULL && (order == 0 || order == 1)){
 
         for(i = 1; i < this->len(this); i++){
 
@@ -432,72 +431,28 @@ int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order){
 
             if(order == 1){
 
-                if(pFunc(this->get(this,j),temp) == 1){
+                while (j >= 0 && pFunc(this->get(this,j),temp) == 1){
 
-                    while(j >= 0 && temp < this->get(this,j)){
-
-                        this->pElements[j+1] = this->get(this,j);
-                        j--;
-                    }
-                    this->pElements[j+1] = temp;
+                    this->pElements[j+1] = this->get(this,j);
+                    j--;
                 }
-                else {
-
-                    if(pFunc(this->get(this,j),temp) == -1){
-                        continue;
-                    }
-                    else{
-                        continue;
-                    }
-                }
+                this->pElements[j+1] = temp;
             }
             else {
 
-                if(pFunc(this->get(this,j),temp) == -1){
+                while (j >= 0 && pFunc(this->get(this,j),temp) == -1){
 
-                    while(j >= 0 && temp > this->get(this,j)){
-
-                        this->pElements[j+1] = this->get(this,j);
-                        j--;
-                    }
-                    this->pElements[j+1] = temp;
+                    this->pElements[j+1] = this->get(this,j);
+                    j--;
                 }
-                else {
-
-                   if(pFunc(this->get(this,j),temp) == 1){
-                        continue;
-                    }
-                    else{
-                        continue;
-                    }
-                }
+                this->pElements[j+1] = temp;
             }
         } // for(i = 1; i < this->len(this); i++)
         returnAux = 0;
     } // if(this != NULL && thisAux != NULL && pFunc != NULL && (order == 0 || order == 1))
     return returnAux;
 }
-//        for(i = 0; i < this->len(this)-1; i++){
-//
-//            for(j = i+1; j < this->len(this); j++){
-//
-//                if(pFunc(this->pElements[i],this->pElements[j])==1 && order==1){
-//
-//                    thisAux->pElements = this->pElements[j];
-//                    this->pElements[j] = this->pElements[i];
-//                    this->pElements[i] = thisAux->pElements;
-//                }
-//                else {
-//
-//                    if(pFunc(this->pElements[i],this->pElements[j])==-1 && order == 0){
-//
-//                        thisAux->pElements = this->pElements[j];
-//                        this->pElements[j] = this->pElements[i];
-//                        this->pElements[i] = thisAux->pElements;
-//                    }
-//                }
-//            }
-//        }
+
 
 /** \brief Increment the number of elements in pList in AL_INCREMENT elements.
  * \param pList ArrayList* Pointer to arrayList
