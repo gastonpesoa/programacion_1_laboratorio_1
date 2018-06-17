@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1529268145 source:/Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1528437654 /Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/ArrayList.h
+
+1529271157 source:/Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/Employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1463521274 /Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/Employee.h
+
+1528282096 /Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/input.h
+	<stdio.h>
+
+1529191972 source:/Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1529271160 source:/Volumes/Almacen/UTN/Programacion I/TPs/tp4/ejemplo_uso_arrayList/main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
