@@ -382,8 +382,8 @@ ArrayList* al_subList(ArrayList* this,int from,int to){
     int i;
 
     if(this != NULL && portionList != NULL && from >= 0 && from < to && to > 0 && to <= this->len(this)){
-
-        for(i = from; i < to; i++){
+        //for(i = from; i < to; i++) // Verificar to inclusivo o exclusivo - Aca se comenta for con to exclusivo
+        for(i = from; i <= to; i++){
 
             this->add(portionList,this->get(this,i));
         }
@@ -515,7 +515,7 @@ int expand(ArrayList* this,int index)
 
         this->size++;
 
-        for(i = this->len(this) -1 ; i > index ; i--){
+        for(i = this->len(this) -1; i > index; i--){
 
              this->pElements[i] = this->get(this,i-1);
         }
