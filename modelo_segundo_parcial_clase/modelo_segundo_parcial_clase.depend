@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1529367612 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
+1529344052 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\arraylist.h
+
+1529368176 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\person.h
+
+1529344052 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\input.h
+	<stdio.h>
+
+1529368416 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\parser.h
+
+1529365028 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
+1529368384 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
+1529367994 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
+1529368202 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\person.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
