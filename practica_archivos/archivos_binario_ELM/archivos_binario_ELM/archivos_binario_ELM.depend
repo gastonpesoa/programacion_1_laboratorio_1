@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1530017345 source:/Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_binario_ELM/archivos_binario_ELM/input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1528282096 /Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_binario_ELM/archivos_binario_ELM/input.h
+	<stdio.h>
+
+1530032504 source:/Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_binario_ELM/archivos_binario_ELM/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+

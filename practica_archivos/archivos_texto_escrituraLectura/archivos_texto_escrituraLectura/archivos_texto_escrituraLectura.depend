@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1530017345 source:/Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_texto_escrituraLectura/archivos_texto_escrituraLectura/input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1528282096 /Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_texto_escrituraLectura/archivos_texto_escrituraLectura/input.h
+	<stdio.h>
+
+1530023378 source:/Volumes/Almacen/UTN/Programacion I/Practicas/practica_archivos/archivos_texto_escrituraLectura/archivos_texto_escrituraLectura/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
