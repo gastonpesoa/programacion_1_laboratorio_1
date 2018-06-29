@@ -64,6 +64,8 @@ char* person_getMail(Person* pPerson);
  */
 int person_compareByName(void* pPersonA,void* pPersonB);
 
+int person_compareByMail(void* pPersonA,void* pPersonB);
+
 
 /** \brief Shows the selected person by screen
  * \param pPerson (Person*) Pointer to the person to be displayed
@@ -78,3 +80,6 @@ void person_print(Person* pPerson);
  * \return void
  */
 void person_printAll(Person* pPerson,ArrayList* personsList);
+
+
+int person_printArrayList(ArrayList* personsList);

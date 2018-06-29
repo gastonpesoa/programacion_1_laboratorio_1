@@ -36,8 +36,8 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
 
             Person* person = person_new();
 
-            person_setName(person,nameAux,1,51);
-            person_setMail(person,mailAux,1,51);
+            person_setName(person,nameAux,1,256);
+            person_setMail(person,mailAux,1,256);
 
             if(al_add(personsList,person) == -1){
                 printf("\r\nNo se pudo ingresar el nuevo producto, verifique espacio en memoria\r\n");
@@ -45,8 +45,6 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
             }
 
             returnAux = 0;
-
-            person_print(person);
         }
         else {
 
@@ -55,9 +53,6 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
             return returnAux;;
         }//if(readItem==4)
     }//while(!feof(pFile))
-
-    printf("\n\rLista cargada con exito\n\r");
-    getChar("\n\rPresione una tecla para continuar: ");
 
     fclose(pFile);
     return returnAux;

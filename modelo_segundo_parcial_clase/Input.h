@@ -32,6 +32,8 @@ void cleanStdin(void);
  */
 void clearScreen(void);
 
+void pause(void);
+
 
 /** \brief Funcion que solicita un caracter 's' o 'n', valida que sea ingresado correctamente y devuelve el resultado
  * \param char confirmMessage[] el mensaje a ser mostrado

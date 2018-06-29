@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529367612 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\arraylist.c
+1529938510 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/ArrayList.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -9,26 +9,16 @@
 	"Input.h"
 	"Parser.h"
 
-1529344052 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\arraylist.h
+1529344052 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/ArrayList.h
 
-1529368176 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\person.h
+1530280312 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Person.h
 
-1529344052 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\input.h
+1530290404 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Input.h
 	<stdio.h>
 
-1529368416 e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\parser.h
+1529412402 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Parser.h
 
-1529365028 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\input.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
-	"ArrayList.h"
-	"Person.h"
-	"Input.h"
-	"Parser.h"
-
-1529368384 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\parser.c
+1530290381 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Input.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -38,7 +28,7 @@
 	"Input.h"
 	"Parser.h"
 
-1529367994 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\main.c
+1530289679 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Parser.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -48,7 +38,17 @@
 	"Input.h"
 	"Parser.h"
 
-1529368202 source:e:\utn\laboratorio i\parciales\parcial2\modelo_segundo_parcial_clase\modelo_segundo_parcial_clase\person.c
+1530279981 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/Person.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Person.h"
+	"Input.h"
+	"Parser.h"
+
+1530288376 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_segundo_parcial_clase/modelo_segundo_parcial_clase/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

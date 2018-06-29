@@ -147,8 +147,8 @@ void* al_get(ArrayList* this, int index){
 }
 
 
-/** \brief  Find if pList contains at least one element pElement
- * \param pList ArrayList* Pointer to arrayList
+/** \brief  Find if this contains at least one element pElement
+ * \param this ArrayList* Pointer to arrayList
  * \param pElement void* Pointer to element
  * \return int Return (-1) if Error [pList or pElement are NULL pointer]
  *                  - ( 0) if Ok but not found a element
@@ -380,7 +380,7 @@ ArrayList* al_subList(ArrayList* this,int from,int to){
 
 
 
-/** \brief Returns true if pList list contains all of the elements of pList2
+/** \brief Returns true if this list contains all of the elements of this2
  * \param pList ArrayList* Pointer to arrayList
  * \param pList2 ArrayList* Pointer to arrayList
  * \return int Return (-1) if Error [pList or pList2 are NULL pointer]

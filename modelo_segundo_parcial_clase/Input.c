@@ -68,6 +68,14 @@ void clearScreen(void){
 }
 
 
+void pause(void){
+
+    setbuf(stdin,NULL);
+    getchar();
+
+}
+
+
 char confirm(char confirmMessage[]){
 
     char confirmar = 'n';

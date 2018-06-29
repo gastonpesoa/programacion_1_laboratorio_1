@@ -80,9 +80,23 @@ int person_compareByName(void* pPersonA,void* pPersonB){
 }
 
 
+int person_compareByMail(void* pPersonA,void* pPersonB){
+
+    if(strcmp(((Person*)pPersonA)->mail,((Person*)pPersonB)->mail) > 0){
+
+        return 1;
+    }
+    if(strcmp(((Person*)pPersonA)->mail,((Person*)pPersonB)->mail) < 0){
+
+        return -1;
+    }
+    return 0;
+}
+
+
 void person_print(Person* pPerson){
 
-    printf("| Nombre: %15s | Mail: %15s |\r\n",pPerson->name,pPerson->mail);
+    printf("| Nombre: %15s | Mail: %15s \r\n",pPerson->name,pPerson->mail);
 }
 
 
@@ -93,4 +107,19 @@ void person_printAll(Person* pPerson,ArrayList* personsList){
         pPerson = al_get(personsList, i);
         person_print(pPerson);
     }
+}
+
+int person_printArrayList(ArrayList* personsList){
+
+    int returnAux = -1;
+    int i;
+
+    if(!personsList->isEmpty(personsList)){
+        for(i=0; i<personsList->len(personsList); i++){
+            printf("%4d) ",i);
+            person_print(personsList->get(personsList,i));
+        }
+        returnAux = 0;
+    }
+    return returnAux;
 }
