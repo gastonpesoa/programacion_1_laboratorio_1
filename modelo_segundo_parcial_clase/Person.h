@@ -83,3 +83,5 @@ void person_printAll(Person* pPerson,ArrayList* personsList);
 
 
 int person_printArrayList(ArrayList* personsList);
+
+ArrayList* listDebugger(ArrayList* destList, ArrayList*  blackList);

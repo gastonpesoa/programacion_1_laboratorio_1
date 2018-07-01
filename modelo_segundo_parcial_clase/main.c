@@ -17,11 +17,9 @@ int main(){
 
     FILE* pDestFile = NULL;
     FILE* pBLFile = NULL;
+    FILE* pDepFile = NULL;
+
     int opcionMenuPrincipal = 0;
-    int destLenght, blackLenght;
-    int returnedValueCompare;
-    int i,j;
-    Person *pPersonDestAux,*pPersonBlackAux;
 
     ArrayList* destinatariosList = al_newArrayList();
     if(destinatariosList == NULL){
@@ -35,12 +33,6 @@ int main(){
 		return 0;
 	}
 
-	ArrayList* depuradaList = al_newArrayList();
-    if(depuradaList == NULL){
-		printf("\r\nEspacio en memoria insuficiente\r\n");
-		return 0;
-	}
-
     while(opcionMenuPrincipal != 5){
 
         opcionMenuPrincipal = optionMainMenu();
@@ -50,6 +42,7 @@ int main(){
             case 1: //Cargar destinatarios
 
                 printf("\r\nCargando Lista destinatarios\r\n");
+
                 if(parserPerson(pDestFile, destinatariosList, ARCH_1) == -1){
 
                     printf("\r\nError al cargar el archivo\r\n");
@@ -57,7 +50,7 @@ int main(){
                 }
                 else {
                     printf("\r\nLista destinatarios cargada con exito\r\n");
-                    getChar("\n\rPresione enter para continuar: ");
+                    pause("\n\rPresione enter para continuar: ");
                 }
 
                 break;
@@ -65,6 +58,7 @@ int main(){
             case 2: //Cargar lista negra
 
                 printf("\r\nCargando Lista negra\r\n");
+
                 if(parserPerson(pBLFile, blackList, ARCH_2) == -1){
 
                     printf("\r\nError al cargar el archivo\r\n");
@@ -72,52 +66,53 @@ int main(){
                 }
                 else {
                     printf("\r\nLista negra cargada con exito\r\n");
-                    getChar("\n\rPresione enter para continuar: ");
+                    pause("\n\rPresione enter para continuar: ");
                 }
+
                 break;
 
             case 3: //Depurar
 
-                printf("\r\nDepurando lista\r\n");
+                printf("\r\nDepurando lista...\r\n");
 
-                destLenght = destinatariosList->len(destinatariosList);
-                blackLenght = blackList->len(blackList);
-
-                for(i = 0; i < destLenght; i++){
-
-                    for(j = 0; j < blackLenght; j++){
-
-                        pPersonDestAux = destinatariosList->get(destinatariosList,i);
-                        pPersonBlackAux = blackList->get(blackList,j);
-
-                        returnedValueCompare = person_compareByMail(pPersonDestAux,pPersonBlackAux);
-
-                        if(!returnedValueCompare){
-
-                            destinatariosList->remove(destinatariosList,i);
-                            i  = i - 1;
-                            destLenght = destinatariosList->len(destinatariosList);
-                            break;
-                        }
-                    }
+                ArrayList* depuradaList = listDebugger(destinatariosList, blackList);
+                if(depuradaList == NULL){
+                    printf("\r\nError al intentar depurar la lista\r\n");
+                    return 0;
                 }
 
-                depuradaList = destinatariosList->clone(destinatariosList);
                 printf("\r\nLista depurada con exito\r\n");
-                getChar("\n\rPresione enter para continuar: ");
+                pause("\n\rPresione enter para continuar: ");
+
                 break;
 
             case 4: //Listar
 
                 printf("\r\nLista depurada\r\n\r\n");
+
                 person_printArrayList(depuradaList);
-                getChar("\n\rPresione enter para continuar: ");
+
+                printf("\r\nEscribiendo lista en archivo...\r\n");
+
+                if(!person_toText(pDepFile, depuradaList, ARCH_3)){
+
+                    printf("\r\nLista cargada en archivo con exito\r\n");
+                }
+                else {
+                    printf("\r\nError al escribir el archivo\r\n");
+                    return 0;
+                }
+
+                pause("\n\rPresione enter para continuar: ");
+
                 break;
 
             case 5: //Salir
+
                 continue;
         }
     }
 
     return 0;
 }
+

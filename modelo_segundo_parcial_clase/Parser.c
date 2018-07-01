@@ -18,7 +18,7 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
     if (pFile==NULL) {
 
         printf("\r\nNo se pudo abrir el archivo\n");
-        getChar("\r\nEnter para salir: ");
+        pause("\r\nEnter para salir: ");
         return returnAux;
     }
 
@@ -27,7 +27,7 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
         if(pFile == NULL){
 
             printf("\r\nEl archivo no existe");
-            getChar("\r\nEnter para salir: ");
+            pause("\r\nEnter para salir: ");
             return returnAux;
         }
 
@@ -49,7 +49,7 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
         else {
 
             printf("\r\nNo se leyeron los datos correctamente\n");
-            getChar("\r\nEnter para salir: ");
+            pause("\r\nEnter para salir: ");
             return returnAux;;
         }//if(readItem==4)
     }//while(!feof(pFile))
@@ -57,3 +57,42 @@ int parserPerson(FILE* pFile , ArrayList* personsList, char* archivo){
     fclose(pFile);
     return returnAux;
 }
+
+
+int person_toText(FILE* pFile, ArrayList* personsList, char *fileName){
+
+    int returnAux = -1;
+    int i, arrayLenght;
+    char *nameAux;
+    char *mailAux;
+
+    Person *personAux;
+
+    pFile = fopen(fileName, "w");
+    if(pFile == NULL){
+         printf("\r\nError al intentar abrir el archivo\r\n");
+         pause("\r\nEnter para salir: ");
+         return returnAux;
+    }
+
+    arrayLenght = personsList->len(personsList);
+
+    for(i = 0; i < arrayLenght; i++){
+
+        personAux = personsList->get(personsList,i);
+        nameAux = personAux->name;
+        mailAux = personAux->mail;
+
+        if((fprintf(pFile, "%s,%s\n", nameAux, mailAux)) < 0){
+            printf("\r\nError al intentar escribir la persona en el archivo\r\n");
+            pause("\r\nEnter para salir: ");
+            return returnAux;
+        }
+    }
+
+    fclose(pFile);
+    returnAux = 0;
+    return returnAux;
+}
+
+

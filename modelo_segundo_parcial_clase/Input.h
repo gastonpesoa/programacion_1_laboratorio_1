@@ -32,7 +32,7 @@ void cleanStdin(void);
  */
 void clearScreen(void);
 
-void pause(void);
+void pause(char *pauseMessage);
 
 
 /** \brief Funcion que solicita un caracter 's' o 'n', valida que sea ingresado correctamente y devuelve el resultado

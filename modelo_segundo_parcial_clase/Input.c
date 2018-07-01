@@ -68,11 +68,9 @@ void clearScreen(void){
 }
 
 
-void pause(void){
+void pause(char *pauseMessage){
 
-    setbuf(stdin,NULL);
-    getchar();
-
+    getChar(pauseMessage);
 }
 
 

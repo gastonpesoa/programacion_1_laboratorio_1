@@ -123,3 +123,45 @@ int person_printArrayList(ArrayList* personsList){
     }
     return returnAux;
 }
+
+
+ArrayList* listDebugger(ArrayList* destList, ArrayList*  blackList){
+
+    ArrayList* returnAux = NULL;
+
+    ArrayList* refinedList = al_newArrayList();
+    if(refinedList == NULL){
+        printf("\r\nEspacio en memoria insuficiente\r\n");
+        return returnAux;
+    }
+
+    int i, j, destLenght, blackLenght, returnedValueCompare;
+
+    Person *pPersonDestAux, *pPersonBlackAux;
+
+
+    destLenght = destList->len(destList);
+    blackLenght = blackList->len(blackList);
+
+    for(i = 0; i < destLenght; i++){
+
+        for(j = 0; j < blackLenght; j++){
+
+            pPersonDestAux = destList->get(destList,i);
+            pPersonBlackAux = blackList->get(blackList,j);
+
+            returnedValueCompare = person_compareByMail(pPersonDestAux,pPersonBlackAux);
+
+            if(!returnedValueCompare){
+
+                destList->remove(destList,i);
+                i = i - 1;
+                destLenght = destList->len(destList);
+                break;
+            }
+        }
+    }
+
+    refinedList = destList->clone(destList);
+    return refinedList;
+}
