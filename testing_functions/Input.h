@@ -110,9 +110,9 @@ int esTelefono(char str[]);
 
 
 /**
- * \brief Verifica si el valor recibido contiene cualquier caracter y un '@'
+ * \brief Verifica si el valor recibido contiene cualquier caracter, un '@' y por lo menos un punto
  * \param str Array con la cadena a ser analizada
- * \return 1 si contiene cualquier caracter y un '@'.
+ * \return 1 si contiene cualquier caracter, un '@' y por lo menos un punto.
  */
 int esMail(char str[]);
 

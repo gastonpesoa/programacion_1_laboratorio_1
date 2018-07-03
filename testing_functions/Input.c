@@ -51,14 +51,15 @@ int optionModifyMenu(void){
                 \n| 1 - Modificar nombre                     |\
                 \n| 2 - Modificar mail                       |\
                 \n| 3 - Modificar edad                       |\
-                \n| 4 - Regresar                             |\
+                \n| 4 - Confirmar y modificar archivo        |\
+                \n| 5 - Regresar                             |\
                 \n--------------------------------------------\
                 \n| Ingrese una opcion:                      |\
                 \n--------------------------------------------\n";
     
-    char menuModificarProductMensajeError[] = "\nSe debe elegir una opcion del 1 al 4";
+    char menuModificarProductMensajeError[] = "\nSe debe elegir una opcion del 1 al 5";
     
-    option = getValidInt(menuModificarProductMensaje, menuModificarProductMensajeError, 1, 4);
+    option = getValidInt(menuModificarProductMensaje, menuModificarProductMensajeError, 1, 5);
     return option;
 }
 
@@ -211,14 +212,18 @@ int esMail(char str[]){
 
     int i=0;
     int contadorArroba=0;
+    int contadorPuntos=0;
     while(str[i] != '\0'){
 
         if(str[i] == '@'){
             contadorArroba++;
         }
+        if(str[i] == '.'){
+            contadorPuntos++;
+        }
         i++;
     }
-    if(contadorArroba==1){ // debe tener un arroba
+    if(contadorArroba==1 && contadorPuntos!=0){ // debe tener un arroba y por lo menos un punto
         return 1;
     }
     return 0;

@@ -8,7 +8,7 @@ struct{
 
     int id;
     char name[51];
-    char mail[256];
+    char mail[51];
     int age;
     int status;
 
@@ -213,11 +213,27 @@ void object_print(Object* pObject);
 int object_printArrayList(ArrayList* objectsList);
 
 
+/** \brief Shows all the object in the list of objects with active status
+ * \param objectsList (ArrayList*) Pointer to the list of objects to be displayed
+ * \return int Return (-1) if Error [Empty list]
+ *                  - (0) if Ok
+ */
+int object_printArrayListStatus(ArrayList* objectsList);
+
+
 /** \brief Low logic of the object received as parameter
  * \param pObject (Object*) Pointer to the object to be deleted
  * \return void
  */
 void object_delete(Object* pObject);
+
+
+/** \brief Request, validate an Id and look in the list, passed as an argument, the element with that value.
+ * \param objectsList (ArrayList*) Pointer to the list 
+ * \return (Object*) Return (NULL) the id is not found and you do not want to continue the search
+ *                        - (pointer to the found element) if ok
+ */
+Object *object_requestValidId(ArrayList* objectsList);
 
 
 /** \brief Returns an array with the elements that are not found in blackList

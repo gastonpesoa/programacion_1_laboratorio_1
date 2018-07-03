@@ -75,16 +75,18 @@ int object_enter(ArrayList* objectsList,int lowLimitId,int hiLimitId,\
     int lowLimitMail,int hiLimitMail,int lowLimitAge,int hiLimitAge){
 
     int returnAux = -1;
-    char* nameAux = NULL;
-    char* mailAux = NULL;
+    char nameAux[51];
+    char mailAux[51];
+    int idAux;
     int ageAux;
 
     //Se crea una estructura Object de forma dinámica
     Object* pObject = object_new();
     //Se define nuevo Id para el objecto en funcion del size del arrayList
-    int objectIdAux = objectsList->len(objectsList);
+    idAux = objectsList->len(objectsList);
+    idAux++;
 
-    if(object_setId(pObject, objectIdAux, lowLimitId, hiLimitId) == 0){
+    if(object_setId(pObject, idAux, lowLimitId, hiLimitId) == 0){
 
         object_askName(nameAux);
          while (object_setName(pObject, nameAux, lowLimitName, hiLimitName) == -1) {
@@ -105,10 +107,14 @@ int object_enter(ArrayList* objectsList,int lowLimitId,int hiLimitId,\
 
             printf("\r\nNo se pudo ingresar el nuevo objecto, verifique espacio en memoria\r\n");
             pause("\r\nPresione enter para volver al menu principal\r\n");
-            return returnAux;
         }
-
-        returnAux = 0;
+        else{
+            
+            printf("\r\nAlta realizada con exito\n");
+            object_print(pObject);
+            pause("\r\nPresione enter para volver al menu principal\r\n");
+            returnAux = 0;
+        }
     }
 
     return returnAux;
@@ -296,9 +302,61 @@ int object_printArrayList(ArrayList* objectsList){
 }
 
 
+int object_printArrayListStatus(ArrayList* objectsList){
+
+    int returnAux = -1;
+    int i;
+
+    Object *objectAux = object_new();
+
+    if(!objectsList->isEmpty(objectsList)){
+        for(i=0; i<objectsList->len(objectsList); i++){
+            objectAux = objectsList->get(objectsList,i);
+            if(objectAux->status){
+                printf("%4d) ",i);
+                object_print(objectsList->get(objectsList,i));
+            }
+        }
+        returnAux = 0;
+    }
+    return returnAux;
+}
+
+
 void object_delete(Object* pObject){
 
     pObject->status = OBJECT_INACTIVE;
+}
+
+
+Object *object_requestValidId(ArrayList* objectsList){
+
+    Object *returnAux = NULL;
+    int idAux;
+    int indexItem;
+    char confirmaIngreso = 'n';
+    Object *objectAux = object_new();
+
+    idAux = getValidInt("\r\nIngrese el Id del objeto a dar de baja logica: ","\r\nEl Id debe ser numerico\r\n",1,1000);
+    indexItem = idAux - 1;
+
+    objectAux = objectsList->get(objectsList,indexItem);
+    while(objectAux == NULL){
+
+        printf("\r\nNo hay ningun objeto registrado con el Id ingresado\r\n");
+        confirmaIngreso = confirm("\r\nPresione 's' para volver a ingresar el Id o 'n' para salir: [s|n] ");
+
+        if(confirmaIngreso == 's'){
+            idAux = getValidInt("\r\nReingrese el Id del objeto a modificar: ","\r\nEl Id debe ser numerico\r\n",1,1000);
+            indexItem = idAux - 1;
+            objectAux = objectsList->get(objectsList,indexItem);
+        }
+        else {
+            return returnAux;
+        }
+    }
+
+    return objectAux;
 }
 
 

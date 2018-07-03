@@ -1,0 +1,7 @@
+1,Uno,uno@mail.com,10
+2,Dos,dos@mail.com,20
+3,Tres,tres@mail.com,30
+4,Cuatro,cuatro@mail.com,40
+5,Cinco,cinco@mail.com,50
+6,Seis,seis@mail.com,65
+7,Siete,siete@mail.com,75
