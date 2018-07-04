@@ -1,0 +1,94 @@
+# depslib dependency file v1.0
+1530664172 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Input.h"
+
+1530664436 d:\pesoa_gaston_1f\pesoa_gaston_1f\empleado.h
+	"ArrayList.h"
+
+1530660020 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Input.h"
+
+1530661250 d:\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.h
+
+1530665367 d:\pesoa_gaston_1f\pesoa_gaston_1f\input.h
+	<stdio.h>
+
+1530665428 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+
+1530663743 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Parser.h"
+	"Input.h"
+
+1530662034 d:\pesoa_gaston_1f\pesoa_gaston_1f\parser.h
+	"ArrayList.h"
+
+1530660143 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Empleado.h"
+	"Input.h"
+
+1530660022 source:e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Input.h"
+
+1530661252 e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.h
+
+1530665368 e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\input.h
+	<stdio.h>
+
+1530664174 source:e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Input.h"
+
+1530664438 e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\empleado.h
+	"ArrayList.h"
+
+1530665430 source:e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+
+1530660144 source:e:\utn\laboratorio i\parciales\segundoparcial\pesoa_gaston_1f\pesoa_gaston_1f\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Empleado.h"
+	"Input.h"
+
