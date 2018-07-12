@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="modelo_final_1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/modelo_final_1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/modelo_final_1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="ArrayList.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ArrayList.h" />
+		<Unit filename="Artist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Artist.h" />
+		<Unit filename="Files.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Files.h" />
+		<Unit filename="Input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Input.h" />
+		<Unit filename="Object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Object.h" />
+		<Unit filename="Reproduction.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Reproduction.h" />
+		<Unit filename="Song.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Song.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

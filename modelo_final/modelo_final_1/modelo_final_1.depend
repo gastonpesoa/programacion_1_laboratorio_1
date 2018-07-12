@@ -1,0 +1,87 @@
+# depslib dependency file v1.0
+1531233316 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1531225575 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/ArrayList.h
+
+1531231066 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+
+1530665368 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Input.h
+	<stdio.h>
+
+1531399365 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Object.h"
+	"Song.h"
+	"Artist.h"
+	"Reproduction.h"
+	"Input.h"
+	"Files.h"
+
+1531314574 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Object.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Object.h"
+	"Input.h"
+
+1531308753 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Object.h
+
+1531399927 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Files.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Object.h"
+	"Song.h"
+	"Reproduction.h"
+	"Input.h"
+	"Files.h"
+
+1531323212 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Files.h
+
+1531395713 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Song.h
+
+1531235276 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Reproduction.h
+
+1531235597 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Reproduction.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Reproduction.h"
+	"Input.h"
+
+1531395727 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Song.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Song.h"
+	"Input.h"
+
+1531395627 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Artist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Artist.h"
+	"Input.h"
+
+1531395682 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final/modelo_final_1/Artist.h
+
