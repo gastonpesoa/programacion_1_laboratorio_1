@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1531437572 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1531433256 d:\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.h
+
+1531433321 d:\pesoa_gaston_1f\pesoa_gaston_1f\product.h
+
+1531437609 d:\pesoa_gaston_1f\pesoa_gaston_1f\input.h
+	<stdio.h>
+
+1531434810 d:\pesoa_gaston_1f\pesoa_gaston_1f\parser.h
+
+1531436860 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1531433256 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1531436641 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1531436956 source:d:\pesoa_gaston_1f\pesoa_gaston_1f\product.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
