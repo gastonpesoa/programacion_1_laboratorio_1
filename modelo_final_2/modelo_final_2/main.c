@@ -255,7 +255,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a agregar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,stockAux);
+                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,99999999999999);
                     //Se solicita confirmar el aumento del stock del producto
                     confirma = confirm("\r\nSe esta por agregar la cantidad ingresada del producto seleccionado, confirma el aumento? [s|n]: ");
                     if(confirma == 's'){
@@ -283,7 +283,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a agregar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,stockAux);
+                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,9999999999999999);
                     //Se solicita confirmar el aumento del stock del producto
                     confirma = confirm("\r\nSe esta por agregar la cantidad ingresada del producto seleccionado, confirma el aumento? [s|n]: ");
                     if(confirma == 's'){
