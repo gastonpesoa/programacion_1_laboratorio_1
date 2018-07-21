@@ -37,7 +37,7 @@ Product* getValidProduct(ArrayList* depositList){
     do{
         //Se listan los productos del deposito 
         product_printArrayList(depositList);
-        productIdAux = getValidInt("\nIngrese el codigo del producto: ","\nEl codigo debe ser numerico\n",1,9999);
+        productIdAux = getValidInt("\nIngrese el codigo del producto: ","\nEl codigo debe ser numerico\n",LOW_LIMIT,HI_LIMIT);
         //Se recorre la lista del deposito buscando coincidencia
         for(i = 0; i < depositListLenght; i++){
             productAux = depositList->get(depositList,i);

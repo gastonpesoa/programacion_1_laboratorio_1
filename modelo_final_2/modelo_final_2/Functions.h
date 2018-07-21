@@ -1,4 +1,7 @@
 
+#define LOW_LIMIT 1
+#define HI_LIMIT 999999999
+
 /**
  * \brief Solicita un numero de deposito origen y destino al usuario y valida que no sean iguales
  * \param (void)

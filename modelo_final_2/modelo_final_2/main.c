@@ -8,7 +8,6 @@
 #include "Parser.h"
 #include "Functions.h"
 
-
 #define ARCH_1 "/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/dep0.csv"
 #define ARCH_2 "/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/dep1.csv"
 
@@ -187,7 +186,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a descontar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToDiscount = getValidInt("\r\nIngrese la cantidad de producto a descontar: ","\r\nLa cantidad debe ser numerica\r\n",1,stockAux);
+                    qtyToDiscount = getValidInt("\r\nIngrese la cantidad de producto a descontar: ","\r\nLa cantidad debe ser numerica\r\n",LOW_LIMIT,stockAux);
                     //Se solicita confirmar el descuento del stock del producto
                     confirma = confirm("\r\nSe esta por descontar la cantidad ingresada del producto seleccionado, confirma el decuento? [s|n]: ");
                     if(confirma == 's'){
@@ -215,7 +214,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a descontar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToDiscount = getValidInt("\r\nIngrese la cantidad de producto a descontar: ","\r\nLa cantidad debe ser numerica\r\n",1,stockAux);
+                    qtyToDiscount = getValidInt("\r\nIngrese la cantidad de producto a descontar: ","\r\nLa cantidad debe ser numerica\r\n",LOW_LIMIT,stockAux);
                     //Se solicita confirmar el descuento del stock del producto
                     confirma = confirm("\r\nSe esta por descontar la cantidad ingresada del producto seleccionado, confirma el decuento? [s|n]: ");
                     if(confirma == 's'){
@@ -242,7 +241,7 @@ int main(){
                 printf("\n\n=================================================\
                           \n|   *      AGREGAR PRODUCTOS A DEPOSITO      *  |\
                           \n=================================================");
-                
+
                 optionDeposit = getValidInt("\nIngrese el numero del deposito que contiene el producto a agregar stock: ","\nLa opcion debe ser numerica\n",1,2);
 
                 if(optionDeposit == 1){//Deposito Uno
@@ -255,7 +254,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a agregar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,99999999999999);
+                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",LOW_LIMIT,HI_LIMIT);
                     //Se solicita confirmar el aumento del stock del producto
                     confirma = confirm("\r\nSe esta por agregar la cantidad ingresada del producto seleccionado, confirma el aumento? [s|n]: ");
                     if(confirma == 's'){
@@ -283,7 +282,7 @@ int main(){
                     product_print(productToModifyStock);
                     //Se obtiene el stock del producto y se solicita la cantidad a agregar
                     stockAux = product_getStock(productToModifyStock);
-                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",1,9999999999999999);
+                    qtyToAdd = getValidInt("\r\nIngrese la cantidad de producto a agregar: ","\r\nLa cantidad debe ser numerica\r\n",LOW_LIMIT,HI_LIMIT);
                     //Se solicita confirmar el aumento del stock del producto
                     confirma = confirm("\r\nSe esta por agregar la cantidad ingresada del producto seleccionado, confirma el aumento? [s|n]: ");
                     if(confirma == 's'){
