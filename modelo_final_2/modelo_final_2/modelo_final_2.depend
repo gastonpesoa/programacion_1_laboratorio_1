@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1530627069 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1530491575 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/ArrayList.h
+
+1532124947 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Product.h
+
+1532127139 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Input.h
+	<stdio.h>
+
+1532124914 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Parser.h
+
+1532136316 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1532136189 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+
+1532133338 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1532134702 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Product.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+
+1532143098 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Product.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+
+1532179745 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_2/modelo_final_2/Functions.h
+
