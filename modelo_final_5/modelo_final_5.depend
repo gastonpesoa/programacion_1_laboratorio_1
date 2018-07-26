@@ -1,0 +1,93 @@
+# depslib dependency file v1.0
+1532491975 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1532492807 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/ArrayList.h
+
+1532559569 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
+1532491977 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Input.h
+	<stdio.h>
+
+1532494367 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Parser.h
+
+1532565931 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Functions.h
+	"Service.h"
+
+1532495149 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/LogEntry.h
+
+1532495226 /Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Service.h
+
+1532555924 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
+1532495195 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/LogEntry.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
+1532565977 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
+1532494989 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
+1532559673 source:/Volumes/Almacen/UTN/Programacion I/Practicas/modelo_final_5/Service.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"LogEntry.h"
+	"Service.h"
+
