@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1533076866 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"Entrega.h"
+
+1533075507 /Volumes/Almacen/UTN/Programacion I/Practicas/final_2/ArrayList.h
+
+1533075476 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Entrega.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Entrega.h"
+	"Input.h"
+	"Parser.h"
+
+1533091652 /Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Entrega.h
+
+1533071963 /Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Input.h
+	<stdio.h>
+
+1533072237 /Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Parser.h
+
+1533074110 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Entrega.h"
+	"Input.h"
+	"Parser.h"
+
+1533091259 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Functions.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Entrega.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+
+1533091394 /Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Functions.h
+
+1533079264 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Input.h"
+	"Parser.h"
+	"Functions.h"
+	"Entrega.h"
+
+1533084857 source:/Volumes/Almacen/UTN/Programacion I/Practicas/final_2/Parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"ArrayList.h"
+	"Entrega.h"
+	"Input.h"
+	"Parser.h"
+
