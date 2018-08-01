@@ -2,12 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "Input.h"
 #include "ArrayList.h"
 #include "Entrega.h"
-#include "Input.h"
 #include "Parser.h"
 
 
+/** \brief Open a file for reading, analyze it, load structs with the data readed and
+ * \add the new element to a list
+ * \param pFile (FILE*) Pointer to file
+ * \param entregasList (ArrayList*) Pointer to arrayList
+ * \param fileName (char*) Name of the file to be read
+ * \return (int) Return (-1) if Error [can't open file, doesn't exists, can't added to the list or read file]
+ *                      -(0) if ok
+ */
 int parserEntregasListFile(FILE *pFile , ArrayList *entregasList, char *fileName){
 
     //Se definen variables auxiliares
@@ -79,59 +87,71 @@ int parserEntregasListFile(FILE *pFile , ArrayList *entregasList, char *fileName
 }
 
 
-/*
-int entregasListToFile(FILE *pFile, ArrayList *entregasList, char *fileName){
+/** \brief Write in the file passes as argument the entregas with the localidad passed as argument
+ * \param entregasList (ArrayList*) Pointer to arrayList
+ * \param localidad (char*) Localidades of the entregas to be writed
+ * \param pFile (FILE*) Pointer to file
+ * \return (int) Return (-1) if Error [can't open, write the file or doesn't exists]
+ *                      -(0) if ok
+ */
+int imprimirArchivoPorLocalidad(ArrayList* entregasList, char* localidad, FILE *pFile){
 
-    //Se definen variables auxiliares
-    int returnAux = -1;
-    int i, arrayLenght, idAux, stockAux;
-    char *productoAux;
-
+    int i, idAux, returnAux = -1;
+    char productoAux[51], direccionAux[51], recibeAux[51], localidadAux[51];
     Entrega *entregaAux;
 
-    //Se verifica que la lista ingresada no sea NULL
-    if(entregasList == NULL){
-        //En caso de lista NULL se informa y se sale retornando valor de Error
-        printf("\r\nError, lista nula\r\n");
-        pause("\r\nPresione enter para volver\r\n");
-        return returnAux;
-    }
-    //Se abre el archivo, pasado como parametro, para escribir texto
-    //y se asigna puntero al archivo devuelto, al puntero pFile pasado como paramentro
-    if((pFile = fopen(fileName,"w+")) == NULL){
-        //Si fopen devuelve NULL se informa y se sale de la funcion retornando valor de error
-        printf("\r\nError al intentar abrir el archivo\r\n");
-        pause("\r\nEnter para salir: ");
-        return returnAux;
-    }
-    //Se escribe cabecera del archivo
-    cleanStdin();
-    fprintf(pFile, "entregao,descripcion,cantidad\n");
-    //Se obtiene la longitud de la lista a recorrer
-    arrayLenght = entregasList->len(entregasList);
+    for(i = 0; i < entregasList->len(entregasList); i++){
 
-    for(i = 0; i < arrayLenght; i++){
-        //Obtengo el primer elemento de la lista
         entregaAux = entregasList->get(entregasList,i);
-        //Asigno los campos del elemento a las variables auxiliares
-        idAux = entregaAux->entregaId;
-        productoAux = entregaAux->producto;
-        stockAux = entregaAux->stock;
-        //Se escriben los datos obtenidos en el archivo
-        cleanStdin();
-        if((fprintf(pFile, "%d,%s,%d\n", idAux, productoAux, stockAux)) < 0){
-            //En caso de error al escribir los datos se informa y se sale retornando valor de Error
-            printf("\r\nError al intentar escribir la objecta en el archivo\r\n");
-            pause("\r\nEnter para salir: ");
-            return returnAux;
+
+        strcpy(localidadAux,entrega_getLocalidad(entregaAux));
+        idAux = entrega_getId(entregaAux);
+        strcpy(direccionAux,entrega_getDireccion(entregaAux));
+        strcpy(productoAux,entrega_getProduct(entregaAux));
+        strcpy(recibeAux,entrega_getRecibe(entregaAux));
+
+        if(!strcmp(localidadAux,localidad)){
+            if((fprintf(pFile, "%d,%s,%s,%s,%s,\n", idAux, productoAux, direccionAux, localidadAux, recibeAux)<0)){
+                pause("\nError al intentar escribir en el archivo\n\r\nEnter para volver: ");
+                return returnAux;
+            }
         }
     }
-    //Si se recorrio toda la lista y se escribieron todos los datos
-    //Se cierra el archivo y se sale retornando valor de Ok
-    fclose(pFile);
     returnAux = 0;
     return returnAux;
 }
 
-*/
 
+/** \brief Request the localidades of the elements to be write and write the entregas with this localidades in the file passes as argument
+ * \param pFile (FILE*) Pointer to file
+ * \param fileName (char*) Name of the file to be written
+ * \param entregasList (ArrayList*) Pointer to arrayList
+ * \param localidadesList (ArrayList*) Pointer to arrayList of localidades
+ * \return int Return (-1) if Error [can't open file or write it]
+ * \                - (0) if Ok
+ */
+int generarArchivoDeReparto(FILE *pFile, char *fileName, ArrayList* entregasList, ArrayList* localidadesList){
+
+    char localidadUno[51], localidadDos[51], localidadTres[51];
+    int returnAux = -1;
+
+    getValidLocalidad(entregasList,localidadesList,"\nIngrese localidad uno: ",localidadUno);
+    getValidLocalidad(entregasList,localidadesList,"\nIngrese localidad dos: ",localidadDos);
+    getValidLocalidad(entregasList,localidadesList,"\nIngrese localidad tres: ",localidadTres);
+
+    pFile = fopen(fileName,"w");
+    if(pFile == NULL){
+        pause("\nNo se pudo abrir el archivo\n\r\nEnter para volver: ");
+    }
+    else{
+        fprintf(pFile, "id,producto,direccion,localidad,recibe\n");
+
+        imprimirArchivoPorLocalidad(entregasList,localidadUno, pFile);
+        imprimirArchivoPorLocalidad(entregasList,localidadDos, pFile);
+        imprimirArchivoPorLocalidad(entregasList,localidadTres, pFile);
+
+        returnAux = 0;
+        fclose(pFile);
+    }
+    return returnAux;
+}

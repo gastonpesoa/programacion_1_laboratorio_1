@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="ArrayList.h" />
+		<Unit filename="Entrega.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Entrega.h" />
 		<Unit filename="Functions.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -47,10 +51,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Parser.h" />
-		<Unit filename="Product.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Product.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
