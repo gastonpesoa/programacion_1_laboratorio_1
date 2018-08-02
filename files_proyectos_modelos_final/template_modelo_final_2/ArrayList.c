@@ -114,7 +114,7 @@ int al_deleteArrayList(ArrayList* this){
 }
 
 
-/** \brief  Delete arrayList
+/** \brief  Get the lenght of the arrayList
  * \param pList ArrayList* Pointer to arrayList
  * \return int Return length of array or (-1) if Error [pList is NULL pointer]
  *
@@ -572,16 +572,14 @@ int resizeUp(ArrayList* this){
             thisAux = NULL;
             return returnAux;
         }
-
         this->pElements = thisAux;
         returnAux = 0;
     }
-
     return returnAux;
 }
 
 
-/** \brief  Expand an array list
+/** \brief Expand an array list
  * \param pList ArrayList* Pointer to arrayList
  * \param index int Index of the element
  * \return int Return (-1) if Error [pList is NULL pointer or invalid index]
@@ -595,7 +593,13 @@ int expand(ArrayList* this,int index){
     if(this != NULL && index >= 0 && index <= this->len(this)){
 
         this->size++;
+        if(this->size >= this->reservedSize){
 
+            if(resizeUp(this) == -1){
+
+                return returnAux;
+            }
+        }
         for(i = this->len(this) -1 ; i > index ; i--){
 
              this->pElements[i] = this->get(this,i-1);
