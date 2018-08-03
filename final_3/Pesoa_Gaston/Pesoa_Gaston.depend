@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1533246223 source:d:\pesoa_gaston\pesoa_gaston\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1533168458 d:\pesoa_gaston\pesoa_gaston\arraylist.h
+
+1533248320 source:d:\pesoa_gaston\pesoa_gaston\input.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Input.h"
+
+1533168460 d:\pesoa_gaston\pesoa_gaston\input.h
+
+1533251651 source:d:\pesoa_gaston\pesoa_gaston\llamada.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Input.h"
+	"ArrayList.h"
+	"Llamada.h"
+
+1533249874 d:\pesoa_gaston\pesoa_gaston\llamada.h
+
+1533249854 source:d:\pesoa_gaston\pesoa_gaston\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Input.h"
+	"ArrayList.h"
+	"Llamada.h"
+	"Parser.h"
+
+1533247317 d:\pesoa_gaston\pesoa_gaston\parser.h
+
+1533248503 source:d:\pesoa_gaston\pesoa_gaston\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"Input.h"
+	"ArrayList.h"
+	"Llamada.h"
+	"Parser.h"
+
